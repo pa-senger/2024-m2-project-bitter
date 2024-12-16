@@ -46,8 +46,26 @@ p_circle_bound2 = newp; Point(p_circle_bound2) = {265e-3 - r_cool1, 265e-3 * Sin
 c_gamma1 = newl; Circle(c_gamma1) = {p_circle_bound1, p_centerGamma1, p_circle_bound2};
 c_gamma2 = newl; Circle(c_gamma2) = {p_circle_bound2, p_centerGamma1, p_circle_bound1};
 
-// Step 3: create Gamma_cool2 holes
+// Step 3: Create Gamma_cool2 holes
 
+// Define radii for the two rows of holes
+r_inner = 208e-3;  // Radius for inner holes
+r_outer = 288e-3;  // Radius for outer holes
 
+// Create the first row of holes
+p1_gamma2_1 = newp; Point(p1_gamma2_1) = {r_inner - w2/2, r_inner * Sin(alpha / 4) + l2 /2, 0};
+p1_gamma2_2 = newp; Point(p1_gamma2_2) = {r_inner - w2/2, r_inner * Sin(alpha / 4) - l2 /2 , 0};
+l1_gamma2_1 = newl; Line(l1_gamma2_1) = {p1_gamma2_1, p1_gamma2_2};
+
+p1_gamma2_12 = newp; Point(p1_gamma2_12) = {r_inner + w2/2, r_inner * Sin(alpha / 4) + l2 /2 , 0};
+p1_gamma2_22 = newp; Point(p1_gamma2_22) = {r_inner + w2/2, r_inner * Sin(alpha / 4) - l2 /2 , 0};
+l1_gamma2_2 = newl; Line(l1_gamma2_2) = {p1_gamma2_12, p1_gamma2_22};	
+
+// l2_gamma2_1 = newl; Line(l2_gamma2_1) = {p1_gamma2_1, p1_gamma2_12}; // to check length
+p_centerGamma2 = newp; Point(p_centerGamma2) = {r_inner, r_inner * Sin(alpha / 4) + l2 / 2, 0}; 
+c_gamma2_1 = newl; Circle(c_gamma2_1) = {p1_gamma2_1, p_centerGamma2, p1_gamma2_12};
+
+p_centerGamma22 = newp; Point(p_centerGamma22) = {r_inner, r_inner * Sin(alpha / 4) - l2 / 2, 0}; 
+c_gamma2_12 = newl; Circle(c_gamma2_12) = {p1_gamma2_22, p_centerGamma22, p1_gamma2_2};
 
 
