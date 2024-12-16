@@ -1,33 +1,20 @@
-//------------------------------------------------------------
-// Use OpenCASCADE geometry kernel
-//------------------------------------------------------------
 SetFactory("OpenCASCADE");
 
-//------------------------------------------------------------
 // Parameters
-//------------------------------------------------------------
-ri     = 200;      // internal radius [mm]
-l      = 100;      // length of the bitter [mm]
+ri     = 200e-3;      // internal radius [m]
+l      = 100e-3;      // length of the bitter [m]
 alpha  = Pi/18;    // angle [rad]
-r1     = 10;       // diameter of Γcool,1 [mm]
-w2     = 1.1;      // width of Γcool,2 [mm]
-l2     = 5.9;      // length of Γcool,2 [mm]
-height = 4;         // height of the geometry [mm]
+r1     = 10e-3;       // diameter of Gamma_cool,1 [m]
+w2     = 1.1e-3;      // width of Gamma_cool,2 [m]
+l2     = 5.9e-3;      // length of Gamma_cool,2 [m]
+height = 4e-3;         // height of the geometry [m]
 
 // Derived parameters
 r_cool1 = r1/2;     // radius of the circular hole
 r_major = l2/2;     // half of elliptical hole length
 r_minor = w2/2;     // half of elliptical hole width
 
-//------------------------------------------------------------
 // Step 1: Create the annular sector (the main domain)
-//------------------------------------------------------------
-// The annular sector is defined by inner radius ri, outer radius (ri + l), 
-// and angle alpha.
-// We'll create four points and construct arcs and lines between them.
-
-// Define boundary points
-// Inner arc endpoints
 p_in1 = newp; Point(p_in1) = {ri*Cos(0),       ri*Sin(0),       0};
 p_in2 = newp; Point(p_in2) = {ri*Cos(alpha),    ri*Sin(alpha),   0};
 
@@ -49,5 +36,18 @@ l_out = newl; Line(l_out) = {p_in2, p_out2};
 // Create the surface of the annular sector
 loop_main = newll; Line Loop(loop_main) = {l_in, c_out, -l_out, -c_in};
 surf_main = news; Plane Surface(surf_main) = {loop_main};
+
+// Step 2: create center disk Gamma_cool1
+p_centerGamma1 = newp; Point(p_centerGamma1) = {265e-3, 265e-3 * Sin(alpha / 2), 0};
+
+p_circle_bound1 = newp; Point(p_circle_bound1) = {265e-3 + r_cool1, 265e-3 * Sin(alpha / 2), 0};
+p_circle_bound2 = newp; Point(p_circle_bound2) = {265e-3 - r_cool1, 265e-3 * Sin(alpha / 2), 0};
+
+c_gamma1 = newl; Circle(c_gamma1) = {p_circle_bound1, p_centerGamma1, p_circle_bound2};
+c_gamma2 = newl; Circle(c_gamma2) = {p_circle_bound2, p_centerGamma1, p_circle_bound1};
+
+// Step 3: create Gamma_cool2 holes
+
+
 
 
