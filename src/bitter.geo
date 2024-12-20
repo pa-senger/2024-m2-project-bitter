@@ -205,3 +205,67 @@ arc_cool24_inner_1 = newl; Circle(arc_cool24_inner_1) = {pt_cool24_inner_1a, pt_
 arc_cool24_inner_2 = newl; Circle(arc_cool24_inner_2) = {pt_cool24_inner_1b, pt_cool24_arc_center4, pt2_cool24_inner_1b};
 
 
+// ###############################################################################
+// Step 4: Create Surfaces, volumes and physical groups with GUI
+// Cu = Omega
+Curve Loop(1) = {4, -2, -3, 1};
+Curve Loop(2) = {20, -22, -19, 21};
+Curve Loop(3) = {8, -10, -7, 9};
+Curve Loop(4) = {5, 6};
+Curve Loop(5) = {15, 18, -16, -17};
+Curve Loop(6) = {11, 14, -12, -13};
+Plane Surface(1) = {1, 2, 3, 4, 5, 6};
+
+// Cool1
+Curve Loop(7) = {6, 5};
+Plane Surface(2) = {7};
+
+// Cool2
+Curve Loop(8) = {19, 22, -20, -21};
+Curve Loop(9) = {15, 18, -16, -17};
+Curve Loop(10) = {11, 14, -12, -13};
+Curve Loop(11) = {8, -10, -7, 9};
+Plane Surface(3) = {8, 9, 10, 11};
+Curve Loop(12) = {11, 14, -12, -13};
+Plane Surface(4) = {12};
+Curve Loop(13) = {19, 22, -20, -21};
+Plane Surface(5) = {13};
+Curve Loop(14) = {16, -18, -15, 17};
+Plane Surface(6) = {14};
+
+
+extrudedVolume[] = Extrude {0, 0, 0.004} {
+	Surface{1, 2, 3, 4, 5, 6}; Layers {5}; Recombine;
+  };
+
+
+// In
+Curve Loop(48) = {29, -26, -3, 28};
+Plane Surface(35) = {48};
+
+// Out
+Curve Loop(50) = {4, 24, -25, -23};
+Plane Surface(36) = {50};
+
+// Channel
+Curve Loop(51) = {23, -30, -28, 1};
+Plane Surface(37) = {51};
+Curve Loop(52) = {2, 24, -27, -26};
+Plane Surface(38) = {52};
+
+
+// Physical groups
+Physical Volume("Cu") = {extrudedVolume[1]};
+Physical Surface("Channel") = {37, 38};
+Physical Surface("Cool1") = {2, 30};
+Physical Surface("Out") = {36};
+Physical Surface("In") = {35};
+Physical Surface("Cool2") = {3, 4, 5, 6, 31, 32, 33, 34};
+
+
+// Mesh size
+Mesh.CharacteristicLengthMin = 0.0005;
+Mesh.CharacteristicLengthMax = 0.005;
+
+
+Mesh 3;
