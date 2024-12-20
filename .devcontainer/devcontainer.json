@@ -1,5 +1,5 @@
 {
-  "name": "2024m2projecteyekalman:latest",
+  "name": "2024m2projectBitter:latest",
   "context": "..",
   "dockerFile": "../Dockerfile"
 }

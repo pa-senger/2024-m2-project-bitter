@@ -1,4 +1,6 @@
 SetFactory("OpenCASCADE");
+// SetFactory("Built-in");
+
 
 // Parameters
 ri     = 200e-3;     // Internal radius [m]
@@ -35,13 +37,17 @@ line_radial_2 = newl; Line(line_radial_2) = {pt_inner_2, pt_outer_2};
 
 // ###############################################################################
 // Step 2: Create center disk Gamma_cool1
-pt_center_cool1 = newp; Point(pt_center_cool1) = {265e-3, 265e-3 * Sin(alpha / 2), 0};
+// pt_center_cool1 = newp; Point(pt_center_cool1) = {265e-3, 265e-3 * Sin(alpha / 2), 0};
 
-pt_cool1_bound_1 = newp; Point(pt_cool1_bound_1) = {265e-3 + r_cool1, 265e-3 * Sin(alpha / 2), 0};
-pt_cool1_bound_2 = newp; Point(pt_cool1_bound_2) = {265e-3 - r_cool1, 265e-3 * Sin(alpha / 2), 0};
+// pt_cool1_bound_1 = newp; Point(pt_cool1_bound_1) = {265e-3 + r_cool1, 265e-3 * Sin(alpha / 2), 0};
+// pt_cool1_bound_2 = newp; Point(pt_cool1_bound_2) = {265e-3 - r_cool1, 265e-3 * Sin(alpha / 2), 0};
 
-arc_cool1_1 = newl; Circle(arc_cool1_1) = {pt_cool1_bound_1, pt_center_cool1, pt_cool1_bound_2};
-arc_cool1_2 = newl; Circle(arc_cool1_2) = {pt_cool1_bound_2, pt_center_cool1, pt_cool1_bound_1};
+// arc_cool1_1 = newl; Circle(arc_cool1_1) = {pt_cool1_bound_1, pt_center_cool1, pt_cool1_bound_2};
+// arc_cool1_2 = newl; Circle(arc_cool1_2) = {pt_cool1_bound_2, pt_center_cool1, pt_cool1_bound_1};
+
+////
+Circle(23) = {265e-3, 265e-3 * Sin(alpha / 2), 0, r_cool1, 0, 2*Pi};
+
 
 // ###############################################################################
 // Step 3: Create Gamma_cool2 holes 
@@ -208,64 +214,42 @@ arc_cool24_inner_2 = newl; Circle(arc_cool24_inner_2) = {pt_cool24_inner_1b, pt_
 // ###############################################################################
 // Step 4: Create Surfaces, volumes and physical groups with GUI
 // Cu = Omega
-Curve Loop(1) = {4, -2, -3, 1};
-Curve Loop(2) = {20, -22, -19, 21};
-Curve Loop(3) = {8, -10, -7, 9};
-Curve Loop(4) = {5, 6};
-Curve Loop(5) = {15, 18, -16, -17};
-Curve Loop(6) = {11, 14, -12, -13};
+Curve Loop(1) = {1, 4, -2, -3};
+Curve Loop(2) = {36, 39, -37, -38};
+Curve Loop(3) = {25, -27, -24, 26};
+Curve Loop(4) = {23};
+Curve Loop(5) = {29, -31, -28, 30};
+Curve Loop(6) = {33, -35, -32, 34};
 Plane Surface(1) = {1, 2, 3, 4, 5, 6};
 
 // Cool1
-Curve Loop(7) = {6, 5};
+Curve Loop(7) = {23};
 Plane Surface(2) = {7};
 
 // Cool2
-Curve Loop(8) = {19, 22, -20, -21};
-Curve Loop(9) = {15, 18, -16, -17};
-Curve Loop(10) = {11, 14, -12, -13};
-Curve Loop(11) = {8, -10, -7, 9};
-Plane Surface(3) = {8, 9, 10, 11};
-Curve Loop(12) = {11, 14, -12, -13};
-Plane Surface(4) = {12};
-Curve Loop(13) = {19, 22, -20, -21};
-Plane Surface(5) = {13};
-Curve Loop(14) = {16, -18, -15, 17};
-Plane Surface(6) = {14};
+Curve Loop(8) = {25, -27, -24, 26};
+Plane Surface(3) = {8};
+Curve Loop(9) = {37, -39, -36, 38};
+Plane Surface(4) = {9};
+Curve Loop(10) = {33, -35, -32, 34};
+Plane Surface(5) = {10};
+Curve Loop(11) = {29, -31, -28, 30};
+Plane Surface(6) = {11};
 
+// Extrude
+Extrude {0, 0, 0.004} {
+  Surface{1}; Surface{2}; Surface{3}; Surface{4}; Surface{5}; Surface{6};
+}
 
-extrudedVolume[] = Extrude {0, 0, 0.004} {
-	Surface{1, 2, 3, 4, 5, 6}; Layers {5}; Recombine;
-  };
-
-
-// In
-Curve Loop(48) = {29, -26, -3, 28};
-Plane Surface(35) = {48};
-
-// Out
-Curve Loop(50) = {4, 24, -25, -23};
-Plane Surface(36) = {50};
-
-// Channel
-Curve Loop(51) = {23, -30, -28, 1};
-Plane Surface(37) = {51};
-Curve Loop(52) = {2, 24, -27, -26};
-Plane Surface(38) = {52};
-
-
-// Physical groups
-Physical Volume("Cu") = {extrudedVolume[1]};
-Physical Surface("Channel") = {37, 38};
-Physical Surface("Cool1") = {2, 30, 19, 20};
-Physical Surface("Out") = {36};
-Physical Surface("In") = {35};
-Physical Surface("Cool2") = {3, 4, 5, 6, 31, 32, 33, 34, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27, 28};
+// Markers
+Physical Volume("Cu") = {1};
+Physical Surface("Cool1") = {2,19,29};
+Physical Surface("Cool2") = {3,4,5,6,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,30,31,32,33};
+Physical Surface("In") = {10};
+Physical Surface("Out") = {8};
+Physical Surface("Channel") = {7,9};
 
 
 // Mesh size
 Mesh.CharacteristicLengthMin = 0.0005;
 Mesh.CharacteristicLengthMax = 0.005;
-
-
-// Mesh 3;
