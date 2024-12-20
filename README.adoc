@@ -9,9 +9,8 @@ docker build -t 2024m2projectBitter:latest .
 ```
 
 == Usage
-To run the program sequentially, move to the `src` directory, make shure you have the right permission:
+To run the program sequentially, make shure you have the proper permission:
 ```bash
-cd src
 chmod +x run
 ```
 and run the program:

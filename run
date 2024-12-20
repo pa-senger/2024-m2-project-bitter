@@ -14,7 +14,7 @@ export OMP_NUM_THREADS=1
 
 # Run Feel++ application in serial mode
 feelpp_toolbox_thermoelectric \
-    --config-files Bitter.cfg \
+    --config-files src/Bitter.cfg \
     --thermo-electric-scalability-save=1 \
     --thermo-electric.heat.scalability-save=1 \
     --thermo-electric.electric.scalability-save=1
