@@ -131,31 +131,77 @@ the finite element method\cite{fem}.
 \section{Methodology}
 \subsection{Geometry and mesh generation}
 
-\subsection{Mathematical model}
-
-\subsubsection{Physical parameters}
-
-% \begin{landscape}
-\begin{table}[h!]
+\begin{figure}[H]
 	\centering
-	\resizebox{\textwidth}{!}{ % Scale the table to the text width
-	\begin{tabular}{l l l l l}
+	\includegraphics[width=0.8\textwidth]{images/top_view_bitter.png}
+	\caption{Top view of the geometry of the LNCMI Bitter magnet.}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|}
 	\hline
-	\textbf{Parameter} & \textbf{Symbol} & \textbf{Units} & \textbf{Baseline Value} & \textbf{Range or Distribution} \\
-	\hline
-	
-	\hline
+	\textbf{Parameter} & \textbf{Symbol} & \textbf{Units} & \textbf{Value} \\ \hline
+	Internal radius & $r_i$ & mm & 200 \\ \hline
+	Length of the bitter & $l$ & mm & 100 \\ \hline
+	Angle between $\Gamma_\text{in}$ and $\Gamma_\text{out}$ & $\alpha$ & radian & $\pi/18$ \\ \hline
+	Diameter of $\Gamma_\text{cool,1}$ & $r_1$ & mm & 10 \\ \hline
+	Width of $\Gamma_\text{cool,2}$ & $w_2$ & mm & 1.1 \\ \hline
+	Length of $\Gamma_\text{cool,2}$ & $l_2$ & mm & 5.9 \\ \hline
+	Height & - & mm & 4 \\ \hline
 	\end{tabular}
-	}
-	\caption{Summary of key physical parameters for modeling the distribution of 
-	temperature and current in the magnet.}
-\end{table}
-% \end{landscape}
+	\caption{Geometrical parameters for the Bitter magnet.}
+	\label{tab:bitter_geometry}
+	\end{table}
+	
 
+\subsection{Mathematical model}
+Equations and variationnal formulation
 
-\subsection{Discretization}
+\subsection{Simulation}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|c|c|}
+	\hline
+	\textbf{Name} & \textbf{Description} & \textbf{Value} & \textbf{Unit} \\ \hline
+	$I$ & Current intensity & $-800$ & A \\ \hline
+	$V_D$ & Electrical potential & $0.03125$ & V \\ \hline
+	$h_i$ & Internal transfer coefficient & $0.08$ & $\mathrm{W \cdot mm^{-2} \cdot K^{-1}}$ \\ \hline
+	$T_{w,i}$ & Internal water temperature & $293$ & K \\ \hline
+	$h_e$ & External transfer coefficient & $0.08$ & $\mathrm{W \cdot mm^{-2} \cdot K^{-1}}$ \\ \hline
+	$T_{w,e}$ & External water temperature & $293$ & K \\ \hline
+	\end{tabular}
+	\caption{Input parameters.}
+	\label{tab:input_parameters}
+	\end{table}
 
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|c|c|c|}
+		\hline
+		\textbf{Name} & \textbf{Description} & \textbf{Marker} & \textbf{Value} & \textbf{Unit} \\ \hline
+		$\sigma$ & Electric conductivity & omega & $58 \cdot 10^3$ & $\mathrm{S \cdot mm^{-1}}$ \\ \hline
+		$\kappa$ & Thermal conductivity & omega & $0.38$ & $\mathrm{W/(mm \cdot K)}$ \\ \hline
+		\end{tabular}
+		\caption{Physical properties (Cu).}
+		\label{tab:physical_properties}
+	\end{table}
 
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Name} & \textbf{Heat} & \textbf{Electric} \\ \hline
+			In & Neumann homogeneous & Dirichlet $V = 0$ \\ \hline
+			Out & Neumann homogeneous & Dirichlet $V = 0.03125$ \\ \hline
+			Channel & Robin ($h_e$, $T_{w,e}$) & - \\ \hline
+			Cool1 & Neumann homogeneous & - \\ \hline
+			Cool2 & Robin ($h_i$, $T_{w,i}$) & - \\ \hline
+			\end{tabular}
+			\caption{Boundary conditions.}
+			\label{tab:boundary_conditions}
+		\end{table}
+			
 
 \section{Implementation}
 
