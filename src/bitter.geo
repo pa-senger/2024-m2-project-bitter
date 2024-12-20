@@ -257,10 +257,10 @@ Plane Surface(38) = {52};
 // Physical groups
 Physical Volume("Cu") = {extrudedVolume[1]};
 Physical Surface("Channel") = {37, 38};
-Physical Surface("Cool1") = {2, 30};
+Physical Surface("Cool1") = {2, 30, 19, 20};
 Physical Surface("Out") = {36};
 Physical Surface("In") = {35};
-Physical Surface("Cool2") = {3, 4, 5, 6, 31, 32, 33, 34};
+Physical Surface("Cool2") = {3, 4, 5, 6, 31, 32, 33, 34, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27, 28};
 
 
 // Mesh size

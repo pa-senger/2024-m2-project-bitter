@@ -5,7 +5,7 @@
   "Meshes": {
     "thermoelectric": {
       "Import": {
-        "filename": "$cfgdir/src/bitter.geo",
+        "filename": "$cfgdir/bitter.geo",
         "partition": 1
       }
     }
