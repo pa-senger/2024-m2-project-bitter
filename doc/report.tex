@@ -159,6 +159,22 @@ the finite element method\cite{fem}.
 Equations and variationnal formulation
 
 \subsection{Simulation}
+The simulation were performed on the High-Performance Computing (HPC) cluster Gaya.
+This cluster consists of a DELL PowerEdge R7525 head node and six DELL PowerEdge 
+R6525 compute nodes, providing a total of 768 multi-threaded cores on the compute 
+nodes and 96 cores on the head node. Gaya offers 150 TB of storage for data and an 
+extremely fast 15 TB NVME scratch space. The head node is equipped with two AMD 
+EPYC 7552 48-Core Processors running at 2.2GHz, totaling 192 virtual cores, and 
+1024 GB of RAM. Each compute node features two AMD EPYC 7713 64-Core Processors 
+running at 2GHz, totaling 256 virtual cores, and 512 GB of RAM. The nodes are 
+interconnected via Broadcom Adv. Dual 10GBASE-T Ethernet and Mellanox ConnectX-6 
+Dx Dual Port 100 GbE for MPI communication.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, angle=-90]{images/gaya.jpeg}
+	\caption{Gaya supercomputer.}
+\end{figure}
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|c|c|}
