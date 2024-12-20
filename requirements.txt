@@ -1,0 +1,8 @@
+pandas
+plotly
+numpy
+scipy
+matplotlib
+python-liquid
+pytest
+tqdm

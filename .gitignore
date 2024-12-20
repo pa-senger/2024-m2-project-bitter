@@ -1,0 +1,7 @@
+*.pdf
+*.nav
+*.snm
+*.gz
+*.bbl
+
+src/feelppdb
