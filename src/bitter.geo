@@ -40,6 +40,10 @@ arc_cool1_1 = newl; Circle(arc_cool1_1) = {pt_cool1_bound_1, pt_center_cool1, pt
 arc_cool1_2 = newl; Circle(arc_cool1_2) = {pt_cool1_bound_2, pt_center_cool1, pt_cool1_bound_1};
 
 // Step 3: Create Gamma_cool2 holes (rectangular lines)
+// TODO : put 2 points = center of cirle, dist(p1, p2) = l - w2
+// TODO:  make a line w2/2 below, duplicate by translation w2/2 above centers points
+// TODO: close with half circles
+// TODO: put this into a function that take the 2 center points coord
 r_inner_cool2 = 208e-3;  // Radius for first row of holes
 r_outer_cool2 = 288e-3;  // Radius for second row of holes
 
@@ -83,4 +87,3 @@ pt_cool2_arc_center2 = newp; Point(pt_cool2_arc_center2) = {
 
 arc_cool2_inner_1 = newl; Circle(arc_cool2_inner_1) = {pt_cool2_inner_1a, pt_cool2_arc_center1, pt2_cool2_inner_1a};
 arc_cool2_inner_2 = newl; Circle(arc_cool2_inner_2) = {pt_cool2_inner_1b, pt_cool2_arc_center2, pt2_cool2_inner_1b};
-
