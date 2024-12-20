@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [eye]
+        service: [my-service]
         tag: [latest]
         dir: [.]
         flavor: [ubuntu]
