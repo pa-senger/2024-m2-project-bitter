@@ -13,7 +13,6 @@ l2     = 5.9e-3;     // Length of Gamma_cool2 [m]
 height = 4e-3;       // Height of the geometry [m]
 epsilon = 1e-10; // to place the point outide the recangle otherwise the arc is always inward
 
-
 // Derived parameters
 r_cool1 = r1 / 2;     // Radius of the circular hole
 r_major = l2 / 2;     // Half of elliptical hole length
@@ -29,7 +28,6 @@ pt_outer_2 = newp; Point(pt_outer_2) = {(ri + l) * Cos(alpha), (ri + l) * Sin(al
 
 pt_center = newp; Point(pt_center) = {0, 0, 0};
 
-// Create arcs and lines
 arc_inner = newl; Circle(arc_inner) = {pt_inner_1, pt_center, pt_inner_2};
 arc_outer = newl; Circle(arc_outer) = {pt_outer_1, pt_center, pt_outer_2};
 
@@ -38,17 +36,7 @@ line_radial_2 = newl; Line(line_radial_2) = {pt_inner_2, pt_outer_2};
 
 // ###############################################################################
 // Step 2: Create center disk Gamma_cool1
-// pt_center_cool1 = newp; Point(pt_center_cool1) = {265e-3, 265e-3 * Sin(alpha / 2), 0};
-
-// pt_cool1_bound_1 = newp; Point(pt_cool1_bound_1) = {265e-3 + r_cool1, 265e-3 * Sin(alpha / 2), 0};
-// pt_cool1_bound_2 = newp; Point(pt_cool1_bound_2) = {265e-3 - r_cool1, 265e-3 * Sin(alpha / 2), 0};
-
-// arc_cool1_1 = newl; Circle(arc_cool1_1) = {pt_cool1_bound_1, pt_center_cool1, pt_cool1_bound_2};
-// arc_cool1_2 = newl; Circle(arc_cool1_2) = {pt_cool1_bound_2, pt_center_cool1, pt_cool1_bound_1};
-
-////
 Circle(23) = {265e-3, 265e-3 * Sin(alpha / 2), 0, r_cool1, 0, 2*Pi};
-
 
 // ###############################################################################
 // Step 3: Create Gamma_cool2 holes 
@@ -65,7 +53,6 @@ x_outer = l2 / (2 * r_outer_cool2);
 
 // ##############################################################################
 // Hole 1 - Inner row 1
-// Define the first line
 pt_cool2_inner_1a = newp; Point(pt_cool2_inner_1a) = {
     r_inner_cool2 * Cos(alpha / 4 - x_inner + w2),
     r_inner_cool2 * Sin(alpha / 4 - x_inner + w2), 0
@@ -76,7 +63,6 @@ pt_cool2_inner_1b = newp; Point(pt_cool2_inner_1b) = {
 };
 line_cool2_inner_1 = newl; Line(line_cool2_inner_1) = {pt_cool2_inner_1a, pt_cool2_inner_1b};
 
-// Define the second line (translated outward by w2)
 pt2_cool2_inner_1a = newp; Point(pt2_cool2_inner_1a) = {
     (r_inner_cool2 + w2) * Cos(alpha / 4 - x_inner + w2),
     (r_inner_cool2 + w2) * Sin(alpha / 4 - x_inner + w2), 0
@@ -113,7 +99,6 @@ pt_cool2_outer_1b = newp; Point(pt_cool2_outer_1b) = {
 };
 line_cool2_outer_1 = newl; Line(line_cool2_outer_1) = {pt_cool2_outer_1a, pt_cool2_outer_1b};
 
-// Define the second line (translated outward by w2)
 pt2_cool2_outer_1a = newp; Point(pt2_cool2_outer_1a) = {
     (r_outer_cool2 + w2) * Cos(alpha / 4 - x_outer + w2),
     (r_outer_cool2 + w2) * Sin(alpha / 4 - x_outer + w2), 0
@@ -139,7 +124,6 @@ arc_cool2_outer_2 = newl; Circle(arc_cool2_outer_2) = {pt_cool2_outer_1b, pt_coo
 
 // ###############################################################################
 // Hole 3 - Outer row 2
-// Define the first line
 pt_cool23_outer_1a = newp; Point(pt_cool23_outer_1a) = {
 	r_outer_cool2 * Cos(3 * alpha / 4 - x_outer + w2),
 	r_outer_cool2 * Sin(3 *alpha / 4 - x_outer + w2), 0
@@ -150,7 +134,6 @@ pt_cool23_outer_1b = newp; Point(pt_cool23_outer_1b) = {
 };
 line_cool23_outer_1 = newl; Line(line_cool23_outer_1) = {pt_cool23_outer_1a, pt_cool23_outer_1b};
 
-// Define the second line (translated outward by w2)
 pt2_cool23_outer_1a = newp; Point(pt2_cool23_outer_1a) = {
 	(r_outer_cool2 + w2) * Cos(3 * alpha / 4 - x_outer + w2),
 	(r_outer_cool2 + w2) * Sin(3 * alpha / 4 - x_outer + w2), 0
@@ -176,7 +159,6 @@ arc_cool23_outer_2 = newl; Circle(arc_cool23_outer_2) = {pt_cool23_outer_1b, pt_
 
 // ###############################################################################
 // Hole 4 - Inner row 2
-// Define the first line
 pt_cool24_inner_1a = newp; Point(pt_cool24_inner_1a) = {
 	r_inner_cool2 * Cos(3 * alpha / 4 - x_inner + w2),
 	r_inner_cool2 * Sin(3 *alpha / 4 - x_inner + w2), 0
@@ -187,7 +169,6 @@ pt_cool24_inner_1b = newp; Point(pt_cool24_inner_1b) = {
 };
 line_cool24_inner_1 = newl; Line(line_cool24_inner_1) = {pt_cool24_inner_1a, pt_cool24_inner_1b};
 
-// Define the second line (translated outward by w2)
 pt2_cool24_inner_1a = newp; Point(pt2_cool24_inner_1a) = {
 	(r_inner_cool2 + w2) * Cos(3 * alpha / 4 - x_inner + w2),
 	(r_inner_cool2 + w2) * Sin(3 * alpha / 4 - x_inner + w2), 0
@@ -210,7 +191,6 @@ pt_cool24_arc_center4 = newp; Point(pt_cool24_arc_center4) = {
 
 arc_cool24_inner_1 = newl; Circle(arc_cool24_inner_1) = {pt_cool24_inner_1a, pt_cool24_arc_center3, pt2_cool24_inner_1a};
 arc_cool24_inner_2 = newl; Circle(arc_cool24_inner_2) = {pt_cool24_inner_1b, pt_cool24_arc_center4, pt2_cool24_inner_1b};
-
 
 // ###############################################################################
 // Step 4: Create Surfaces, volumes and physical groups with GUI
@@ -241,7 +221,6 @@ Plane Surface(6) = {11};
 Extrude {0, 0, 0.004} {
   Surface{1, 2, 3, 4, 5, 6};
 }
-
 
 // Markers
 // Physical Volume("Cu") = {1,2,3,4,5,6};
