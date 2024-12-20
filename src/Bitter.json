@@ -79,7 +79,7 @@
             "type": "integrate",
             "expr": "-materials_Cu_sigma*electric_dn_P:materials_Cu_sigma:electric_dn_P",
             "markers": "%1%",
-            "index1": ["In", "Out]"]
+            "index1": ["In", "Out"]
           },
           "Power": {
             "type": "integrate",

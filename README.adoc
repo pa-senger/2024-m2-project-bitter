@@ -1,1 +1,26 @@
 = Network-integrated Pre and Post-Processing in Scientic Computing
+
+== Introduction
+
+== Installation
+Feel free to use the provided `Dockerfile` to build a docker image with all the necessary dependencies. To do so, run the following command:
+```bash
+docker build -t 2024m2projectBitter:latest .
+```
+
+== Usage
+To run the program sequentially, move to the `src` directory, make shure you have the right permission:
+```bash
+cd src
+chmod +x run
+```
+and run the program:
+```bash
+./run
+```
+
+If you used the container, you can copy the results to your local machine by running:
+```bash
+docker ps # to get the container ID
+docker cp <dockerID>:/home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1 /path/to/your/local/folder
+```
