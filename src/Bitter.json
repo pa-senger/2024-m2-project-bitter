@@ -17,8 +17,8 @@
     {
         "Cu":
         {
-            "k":"0.370",//[ W/(mm*K) ]
-            "sigma":"53e3"//[ 1/Ohm/(mm) ]
+            "k":"0.380",//[ W/(mm*K) ]
+            "sigma":"58e3"//[ 1/Ohm/(mm) ]
         }
     },
     "BoundaryConditions":

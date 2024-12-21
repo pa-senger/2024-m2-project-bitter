@@ -1,7 +1,7 @@
 SetFactory("OpenCASCADE");
 // SetFactory("Built-in");
 
-h = 0.005; // Mesh size
+h = 0.0025; // Mesh size
 
 // Parameters
 ri     = 200e-3;     // Internal radius [m]
@@ -88,7 +88,6 @@ arc_cool2_inner_2 = newl; Circle(arc_cool2_inner_2) = {pt_cool2_inner_1b, pt_coo
 
 // ###############################################################################
 // Hole 2 - outer row 1
-// Define the first line
 pt_cool2_outer_1a = newp; Point(pt_cool2_outer_1a) = {
     r_outer_cool2 * Cos(alpha / 4 - x_outer + w2),
     r_outer_cool2 * Sin(alpha / 4 - x_outer + w2), 0
@@ -205,16 +204,16 @@ Curve Loop(6) = {29, -31, -28, 30};
 // 3D mesh
 Plane Surface(1) = {1, 2, 3, 4, 5, 6};
 volume[] = Extrude {0, 0, 0.004} {
-  Surface{1}; 
+  Surface{1};
 };
 
 
 Physical Volume("Cu") = {volume[1]};
-Physical Surface("Cool1") = {14};
+Physical Surface("Cool1") = {14,1,23};
 Physical Surface("Cool2") = {6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22};
-Physical Surface("In") = {1};
-Physical Surface("Out") = {23};
-Physical Surface("Channel") = {2,3,4,5};
+Physical Surface("In") = {5};
+Physical Surface("Out") = {3};
+Physical Surface("Channel") = {2,4};
 
 // Local Mesh size arond Cool2
 Field[1] = Distance;
@@ -235,7 +234,7 @@ Mesh.Algorithm = 5;
 // Mesh size
 Mesh.CharacteristicLengthMax = h;
 
-Mesh 3;//+
+// Mesh 3;
 
 
 // 2D mesh
