@@ -225,15 +225,15 @@ Extrude {0, 0, 0.004} {
 // Markers
 // Physical Volume("Cu") = {1,2,3,4,5,6};
 Physical Volume("Cu") = {1};
-Physical Surface("Cool1") = {2,19,29};
-Physical Surface("Cool2") = {3,4,5,6,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,30,31,32,33};
+Physical Surface("Cool1") = {19};
+Physical Surface("Cool2") = {11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27};
 Physical Surface("In") = {10};
 Physical Surface("Out") = {8};
 Physical Surface("Channel") = {7,9};
 
 // Local Mesh size arond Cool2
 Field[1] = Distance;
-Field[1].SurfacesList = {3,4,5,6,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,30,31,32,33};
+Field[1].SurfacesList = {11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27};
 Field[1].NumPointsPerCurve = 100;
 
 Field[2] = Threshold;
