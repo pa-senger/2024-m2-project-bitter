@@ -14,7 +14,7 @@
 \usepackage{pdflscape}   % Landscape pages
 \usepackage[backend=biber,style=alphabetic]{biblatex} % Bibliography management
 \addbibresource{references.bib} % Bibliography file
-\graphicspath{{doc/}}
+\graphicspath{/doc/}
 
 % Define colors
 \colorlet{punct}{red!60!black}
@@ -289,7 +289,16 @@ We used the following input parameters and physical properties:
 
 
 \section{Results Visualization}
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/heat.png}
+	\caption{Heat distribution in the Bitter magnet.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/electric_potential.png}
+	\caption{Electric potential distribution in the Bitter magnet.}
+\end{figure}
 \section{Prospects}
 
 \section{Conclusion}

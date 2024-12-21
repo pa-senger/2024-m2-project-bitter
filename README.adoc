@@ -23,3 +23,11 @@ If you used the container, you can copy the results to your local machine by run
 docker ps # to get the container ID
 docker cp <dockerID>:/home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1 /path/to/your/local/folder
 ```
+
+== Results
+If you dont want to run the program, you can find the results in the `thermoelectric.exports` folder. In particular, the `Export.case` file contains the results of on of our simulations.
+
+== Authors
+
+https://github.com/pa-senger[Pierre-Antoine Senger] + 
+https://github.com/ARegardin/ARegardin[Antoine Regardin]
