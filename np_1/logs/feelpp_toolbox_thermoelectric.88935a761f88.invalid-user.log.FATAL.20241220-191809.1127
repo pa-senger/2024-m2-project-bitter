@@ -1,0 +1,4 @@
+Log file created at: 2024/12/20 19:18:09
+Running on machine: 88935a761f88
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+F1220 19:18:09.187717  1127 modelmeasuresstatisticsevaluation.hpp:202] Check failed: false marker Out] not present in mesh

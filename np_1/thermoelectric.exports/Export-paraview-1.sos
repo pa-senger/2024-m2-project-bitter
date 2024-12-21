@@ -1,0 +1,9 @@
+FORMAT:
+type: master_server gold 
+SERVERS
+number of servers: 1 
+#Server 1
+machine id: 88935a761f88
+executable: /usr/local/bin/ensight76/bin/ensight7.server
+data_path: /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1
+casefile: Export.case

@@ -202,17 +202,19 @@ Curve Loop(4) = {23};
 Curve Loop(5) = {32, 35, -33, -34};
 Curve Loop(6) = {29, -31, -28, 30};
 
+// 3D mesh
 Plane Surface(1) = {1, 2, 3, 4, 5, 6};
 volume[] = Extrude {0, 0, 0.004} {
   Surface{1}; 
 };
 
+
 Physical Volume("Cu") = {volume[1]};
 Physical Surface("Cool1") = {14};
 Physical Surface("Cool2") = {6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22};
-Physical Surface("In") = {5};
-Physical Surface("Out") = {3};
-Physical Surface("Channel") = {2,4};
+Physical Surface("In") = {1};
+Physical Surface("Out") = {23};
+Physical Surface("Channel") = {2,3,4,5};
 
 // Local Mesh size arond Cool2
 Field[1] = Distance;
@@ -233,4 +235,26 @@ Mesh.Algorithm = 5;
 // Mesh size
 Mesh.CharacteristicLengthMax = h;
 
-Mesh 3;
+Mesh 3;//+
+
+
+// 2D mesh
+// Curve Loop(7) = {1, 4, -2, -3};
+// //+
+// Curve Loop(8) = {36, 39, -37, -38};
+// //+
+// Curve Loop(9) = {24, 27, -25, -26};
+// //+
+// Curve Loop(10) = {23};
+// //+
+// Curve Loop(11) = {33, -35, -32, 34};
+// //+
+// Curve Loop(12) = {28, 31, -29, -30};
+// //+
+// Plane Surface(1) = {7, 8, 9, 10, 11, 12};
+// Physical Surface("Cu") = {1};
+// Physical Curve("Cool1") = {23};
+// Physical Curve("Cool2") = {24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39};
+// Physical Curve("In") = {3};
+// Physical Curve("Out") = {4};
+// Physical Curve("Channel") = {1,2};

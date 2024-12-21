@@ -1,0 +1,155 @@
+Log file created at: 2024/12/21 00:26:41
+Running on machine: 88935a761f88
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1221 00:26:41.906070  2302 modelproperties.cpp:54] Loading /workspaces/2024-m2-pre-post/src/Bitter.json
+I1221 00:26:41.906685  2302 modelproperties.cpp:151] Model with boundary conditions
+I1221 00:26:41.906698  2302 modelproperties.cpp:173] Model with materials
+I1221 00:26:41.906729  2302 modelmaterials.cpp:209] Material Physical/Region :Cu
+I1221 00:26:41.907159  2302 modelproperties.cpp:181] Model with PostProcess
+I1221 00:26:41.909449  2302 environment.cpp:1736] File /workspaces/2024-m2-pre-post/src/bitter.geo found
+I1221 00:26:41.910272  2302 gmsh.cpp:256] [gmsh::setVerbosity] old Verbosity : 5, new Verbosity : 2 
+I1221 00:26:41.910283  2302 gmsh.cpp:468] Generate mesh on processor 0/1
+I1221 00:26:41.910434  2302 gmsh.cpp:373] [Gmsh::generateGeo] Geo geometry parameter ElementOrder not found ! 
+I1221 00:26:41.910552  2302 gmsh.cpp:394] [Gmsh::generateGeo] Parameter hsize  = (?1$1) = 0.1; now ! (overwrite geo param h !)
+I1221 00:26:41.910789  2302 gmsh.cpp:438] "/home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.geo" exists but is different from the expected geometry, we overwrite it now
+I1221 00:26:41.911384  2302 gmsh.cpp:485] Mesh file /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.msh generated from geometry /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.geo
+I1221 00:26:41.911387  2302 gmsh.cpp:486]  - does mesh file name exists : true
+I1221 00:26:41.911396  2302 gmsh.cpp:491] Generating /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.msh...
+I1221 00:26:41.911404  2302 gmsh.cpp:662] [Gmsh::generate] env.part: 1
+I1221 00:26:41.911406  2302 gmsh.cpp:663] [Gmsh::generate] partitions: 1
+I1221 00:26:41.911407  2302 gmsh.cpp:664] [Gmsh::generate] partitioner: 1
+I1221 00:26:42.295079  2302 gmsh.cpp:766] Writing GMSH file /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.msh in ascii format
+I1221 00:26:42.300938  2302 gmsh.cpp:495] Generating /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.msh done.
+I1221 00:26:42.301044  2302 gmsh.cpp:507] Broadcast mesh file /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.msh to all other mpi processes, (created: 1)
+I1221 00:26:42.301169  2302 importergmsh.hpp:989] Reading Msh file /home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1/thermoelectric.mesh.msh
+I1221 00:26:42.301352  2302 importergmsh.hpp:1013] GMSH mesh file version : 4.1 format: ascii size of double: 8
+I1221 00:26:42.306032  2302 meshimpl.hpp:1078] We have 212 faces in the database
+I1221 00:26:42.308208  2302 meshimpl.hpp:1352] We have now 4493 faces in the mesh
+I1221 00:26:42.312844  2302 meshimpl.hpp:1890] update boundary points...
+I1221 00:26:42.312942  2302 meshimpl.hpp:1910] update boundary elements...
+I1221 00:26:42.318519  2302 meshimpl.hpp:551] h average : 0.00483117
+I1221 00:26:42.318542  2302 meshimpl.hpp:552]     h min : 0.000584278
+I1221 00:26:42.318544  2302 meshimpl.hpp:553]     h max : 0.0287325
+I1221 00:26:42.319115  2302 worldcomm.cpp:895] [rank 0] makeResultRange: mesh count=3
+I1221 00:26:42.319146  2302 worldcomm.cpp:895] [rank 0] makeResultRange: res size=1973
+I1221 00:26:42.319149  2302 worldcomm.cpp:895] [rank 0] makeResultRange: mesh count=3
+I1221 00:26:42.319150  2302 worldcomm.cpp:895] [rank 0] makeResultRange: res size=0
+I1221 00:26:42.319784  2302 worldcomm.cpp:895] [rank 0] [DofTable::build] starts, has mesh support: false
+I1221 00:26:42.320101  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap] starts, dof_indices empty: true
+I1221 00:26:42.320104  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap] allocation done
+I1221 00:26:42.320117  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap]  n_elts =  1973 on processor 0
+I1221 00:26:42.322782  2302 worldcomm.cpp:895] [rank 0] [builddofmap - 0] dof generation hasNoElt : false theFirstDF: 0 thelastDof: 612
+I1221 00:26:42.324615  2302 element_impl.hpp:199] creating element temperature : u
+I1221 00:26:42.328544  2302 worldcomm.cpp:895] [rank 0] [DofTable::build] starts, has mesh support: false
+I1221 00:26:42.328759  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap] starts, dof_indices empty: true
+I1221 00:26:42.328765  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap] allocation done
+I1221 00:26:42.328779  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap]  n_elts =  1973 on processor 0
+I1221 00:26:42.330868  2302 worldcomm.cpp:895] [rank 0] [builddofmap - 0] dof generation hasNoElt : false theFirstDF: 0 thelastDof: 612
+I1221 00:26:42.332363  2302 element_impl.hpp:199] creating element V : V
+I1221 00:26:42.340551  2302 exporterimpl.hpp:219] [Exporter] format :  ensightgold
+I1221 00:26:42.340565  2302 exporterimpl.hpp:220] [Exporter] N      :  1
+I1221 00:26:42.370733  2302 on.hpp:1139] call on(Ts&&... v) : 6
+I1221 00:26:42.370776  2302 on.hpp:1108] call getRhsVectorAsPtr(V const& v) : is_vector_ptr: true is_vectorblock: false, is_vectorcondensed: false
+I1221 00:26:42.370782  2302 on.hpp:1119] call getRhsVectorAsPtr(V const& v) : done
+I1221 00:26:42.370788  2302 on.hpp:1186] call on(Ts&&... v) : 6 done
+I1221 00:26:42.370802  2302 on.hpp:461] IntegratorOnExpr<ElementRange, Elem, RhsElem,  OnExpr>::onFaces() 
+I1221 00:26:42.370805  2302 on.hpp:505] [IntegratorOnExpr<>::onFaces()] start find a face
+I1221 00:26:42.371215  2302 on.hpp:698] IntegratorOnExpr<>::onFaces() zeroRows set 10 rhs values and set 10 dofs
+I1221 00:26:42.371223  2302 matrixpetsc.cpp:1786] MatrixPETSc:: zeroRows seq elimination
+I1221 00:26:42.371233  2302 matrixpetsc.cpp:1834] MatrixPETSc:: zeroRows seq unsymmetric number of rows : 10 value on diagonal : 1
+I1221 00:26:42.371277  2302 on.hpp:701] IntegratorOnExpr<ElementRange, Elem, RhsElem,  OnExpr>::onFaces() done.
+I1221 00:26:42.371331  2302 on.hpp:1139] call on(Ts&&... v) : 6
+I1221 00:26:42.371337  2302 on.hpp:1108] call getRhsVectorAsPtr(V const& v) : is_vector_ptr: true is_vectorblock: false, is_vectorcondensed: false
+I1221 00:26:42.371340  2302 on.hpp:1119] call getRhsVectorAsPtr(V const& v) : done
+I1221 00:26:42.371341  2302 on.hpp:1186] call on(Ts&&... v) : 6 done
+I1221 00:26:42.371398  2302 on.hpp:461] IntegratorOnExpr<ElementRange, Elem, RhsElem,  OnExpr>::onFaces() 
+I1221 00:26:42.371400  2302 on.hpp:505] [IntegratorOnExpr<>::onFaces()] start find a face
+I1221 00:26:42.371789  2302 on.hpp:698] IntegratorOnExpr<>::onFaces() zeroRows set 10 rhs values and set 10 dofs
+I1221 00:26:42.371798  2302 matrixpetsc.cpp:1786] MatrixPETSc:: zeroRows seq elimination
+I1221 00:26:42.371804  2302 matrixpetsc.cpp:1834] MatrixPETSc:: zeroRows seq unsymmetric number of rows : 10 value on diagonal : 1
+I1221 00:26:42.371829  2302 on.hpp:701] IntegratorOnExpr<ElementRange, Elem, RhsElem,  OnExpr>::onFaces() done.
+I1221 00:26:42.371989  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.372696  2302 backendpetsc.cpp:86] call feel_petsc_pre_solve
+I1221 00:26:42.378790  2302 backendpetsc.cpp:49] call feel_petsc_post_solve
+I1221 00:26:42.378818  2302 backendpetsc.cpp:65] call feel_petsc_post_solve done
+I1221 00:26:42.378837  2302 solverlinearpetsc.cpp:638] [solverlinearpetsc] reason = 2
+I1221 00:26:42.473340  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.473448  2302 backendpetsc.cpp:86] call feel_petsc_pre_solve
+I1221 00:26:42.478291  2302 backendpetsc.cpp:49] call feel_petsc_post_solve
+I1221 00:26:42.478307  2302 backendpetsc.cpp:65] call feel_petsc_post_solve done
+I1221 00:26:42.478309  2302 solverlinearpetsc.cpp:638] [solverlinearpetsc] reason = 2
+I1221 00:26:42.500926  2302 evaluator.hpp:848] evaluate minmax(expression)...
+I1221 00:26:42.504868  2302 evaluator.hpp:887] proc 0 index at which function (size: 27622) is minimal: 16082 coord = 
+  0.295432
+ 0.0502913
+0.00181799
+I1221 00:26:42.504932  2302 evaluator.hpp:888] proc 0 index at which function (size: 27622) is maximal: 23240 coord = 
+  0.241118
+ 0.0409401
+0.00218201
+I1221 00:26:42.504977  2302 evaluator.hpp:899] proc 0 : global min = 10464.6 at position 0 with coord : 
+   0.295432
+ 0.0502913
+0.00181799
+I1221 00:26:42.504987  2302 evaluator.hpp:905] proc 0 : global max = 10573.6 at position 0 with coord : 
+   0.241118
+ 0.0409401
+0.00218201
+I1221 00:26:42.504992  2302 evaluator.hpp:911] evaluate minmax(expression) done.
+I1221 00:26:42.519752  2302 element_impl.hpp:199] creating element thermo_electric.heat.temperature : u
+I1221 00:26:42.519798  2302 element_impl.hpp:199] creating element thermo_electric.electric.electric_potential : V
+I1221 00:26:42.521189  2302 worldcomm.cpp:895] [rank 0] [DofTable::build] starts, has mesh support: false
+I1221 00:26:42.521322  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap] starts, dof_indices empty: true
+I1221 00:26:42.521325  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap] allocation done
+I1221 00:26:42.521337  2302 worldcomm.cpp:895] [rank 0] [DofTable::buildDofMap]  n_elts =  1973 on processor 0
+I1221 00:26:42.521631  2302 worldcomm.cpp:895] [rank 0] [builddofmap - 0] dof generation hasNoElt : false theFirstDF: 0 thelastDof: 1972
+I1221 00:26:42.521633  2302 worldcomm.cpp:895] [rank 0] [builddofmap - 0] gather discontinuous dof info hasNoElt : false theFirstDF: 0 thelastDof: 1972
+I1221 00:26:42.521935  2302 element_impl.hpp:199] creating element thermo_electric.electric.electric_field : u
+I1221 00:26:42.524415  2302 element_impl.hpp:199] creating element thermo_electric.electric.electric_field : u
+I1221 00:26:42.526820  2302 element_impl.hpp:199] creating element thermo_electric.electric.electric_field : u
+I1221 00:26:42.529450  2302 element_impl.hpp:199] creating element thermo_electric.electric.current_density : u
+I1221 00:26:42.531700  2302 element_impl.hpp:199] creating element thermo_electric.electric.current_density : u
+I1221 00:26:42.533922  2302 element_impl.hpp:199] creating element thermo_electric.electric.current_density : u
+I1221 00:26:42.536528  2302 element_impl.hpp:199] creating element field : field
+I1221 00:26:42.536698  2302 element_impl.hpp:199] creating element thermo_electric.pid : field
+I1221 00:26:42.540206  2302 exporterensightgold_impl.hpp:1250] writing part 1
+I1221 00:26:42.540400  2302 exporterensightgold_impl.hpp:1376] ExporterEnsightGold::writeVariableFiles Nodal: 2
+I1221 00:26:42.540402  2302 exporterensightgold_impl.hpp:1377] ExporterEnsightGold::writeVariableFiles Element: 3
+I1221 00:26:42.544559  2302 backendpetsc.cpp:99] Deleting linear solver petsc
+I1221 00:26:42.544611  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.544613  2302 preconditionerpetsc.cpp:319] calling PCDestroy
+I1221 00:26:42.544665  2302 backendpetsc.cpp:103] Deleting backend petsc
+I1221 00:26:42.544668  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.544670  2302 backend.cpp:142] Sending delete signal to all observers... thermo-electric.electric
+I1221 00:26:42.544682  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.544683  2302 backend.cpp:142] Sending delete signal to all observers... thermo-electric.electric
+I1221 00:26:42.544859  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545161  2302 backendpetsc.cpp:99] Deleting linear solver petsc
+I1221 00:26:42.545194  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545195  2302 preconditionerpetsc.cpp:319] calling PCDestroy
+I1221 00:26:42.545267  2302 backendpetsc.cpp:103] Deleting backend petsc
+I1221 00:26:42.545269  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545270  2302 backend.cpp:142] Sending delete signal to all observers... thermo-electric.heat
+I1221 00:26:42.545272  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545274  2302 backend.cpp:142] Sending delete signal to all observers... thermo-electric.heat
+I1221 00:26:42.545495  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545612  2302 backendpetsc.cpp:99] Deleting linear solver petsc
+I1221 00:26:42.545614  2302 backendpetsc.cpp:103] Deleting backend petsc
+I1221 00:26:42.545615  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545617  2302 backend.cpp:142] Sending delete signal to all observers... thermo-electric
+I1221 00:26:42.545619  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.545620  2302 backend.cpp:142] Sending delete signal to all observers... thermo-electric
+I1221 00:26:42.545694  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.548569  2302 environment.cpp:2451] Environment::clearSomeMemory before: PETSC get current memory usage (resident memory): 839111  KBytes 839.111  MBytes 0.839111 GBytes
+I1221 00:26:42.548588  2302 environment.cpp:2456] Environment::clearSomeMemory before: PETSC get current PETSC Malloc usage: 0  KBytes 0 MBytes 0 GBytes
+I1221 00:26:42.548594  2302 environment.cpp:2458] Environment::clearSomeMemory before: PETSC get maximum PETSC Malloc usage(largest memory ever used so far): 0  KBytes 0 MBytes 0 GBytes
+I1221 00:26:42.548610  2302 backendpetsc.cpp:99] Deleting linear solver petsc
+I1221 00:26:42.548614  2302 backendpetsc.cpp:103] Deleting backend petsc
+I1221 00:26:42.548615  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.548616  2302 backend.cpp:142] Sending delete signal to all observers... 
+I1221 00:26:42.548619  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.548620  2302 backend.cpp:142] Sending delete signal to all observers... 
+I1221 00:26:42.548846  2302 preconditionerpetsc.cpp:309] PreconditionerPetsc<T>::clear
+I1221 00:26:42.548920  2302 environment.cpp:2451] Environment::clearSomeMemory after: PETSC get current memory usage (resident memory): 839111  KBytes 839.111  MBytes 0.839111 GBytes
+I1221 00:26:42.548926  2302 environment.cpp:2456] Environment::clearSomeMemory after: PETSC get current PETSC Malloc usage: 0  KBytes 0 MBytes 0 GBytes
+I1221 00:26:42.548928  2302 environment.cpp:2458] Environment::clearSomeMemory after: PETSC get maximum PETSC Malloc usage(largest memory ever used so far): 0  KBytes 0 MBytes 0 GBytes
