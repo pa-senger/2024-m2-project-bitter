@@ -14,7 +14,7 @@
 \usepackage{pdflscape}   % Landscape pages
 \usepackage[backend=biber,style=alphabetic]{biblatex} % Bibliography management
 \addbibresource{references.bib} % Bibliography file
-\graphicspath{/doc/}
+\graphicspath{doc/}
 
 % Define colors
 \colorlet{punct}{red!60!black}
@@ -115,12 +115,12 @@ Pre and Post-Processing applied to a LNCMI Bitter Magnet\par}
 \subsection{Context}
 A Bitter magnet is a type of electromagnet that uses stacked, flat, spiral-shaped 
 copper or brass plates (discs) with slits to allow cooling water to flow through. 
-These magnets can generate extremely high magnetic fields, much higher than typical 
-electromagnets, due to their ability to handle large electric currents without 
-overheating and that's why they are commonly employed in scientific research and 
-advanced applications where such fields are essential.
+Due to their ability to handle large electric currents without overheating and
+generating strong magnetic fields, Bitter electromagnets are widely used in
+high-field physics research, such as nuclear magnetic resonance (NMR) and magnetic
+resonance imaging (MRI) machines.
 
-Simulation of how current and heat are distributed in the magnet is crucial to
+Simulations of how current and heat are distributed in the magnet are crucial to
 understand the behavior of the magnet to maximize its performance and prevent
 overheating and irreversible damages.
 
@@ -193,7 +193,7 @@ Physical groups were defined for each boundary of the geometry to apply the boun
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/bitter_mesh.png}
+	\includegraphics[width=\textwidth]{images/bitter_mesh.png}
 	\caption{Adaptive 3D mesh of the LNCMI Bitter magnet.}
 \end{figure}
 
