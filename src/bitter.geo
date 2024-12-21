@@ -1,7 +1,7 @@
 SetFactory("OpenCASCADE");
 // SetFactory("Built-in");
 
-h = 0.0025; // Mesh size
+h = 0.005; // Mesh size
 
 // Parameters
 ri     = 200e-3;     // Internal radius [m]
@@ -205,35 +205,35 @@ Plane Surface(1) = {1, 2, 3, 4, 5, 6};
 
 // Cool1
 Curve Loop(7) = {23};
-Plane Surface(2) = {7};
+// Plane Surface(2) = {7};
 
 // Cool2
-Curve Loop(8) = {25, -27, -24, 26};
-Plane Surface(3) = {8};
-Curve Loop(9) = {37, -39, -36, 38};
-Plane Surface(4) = {9};
-Curve Loop(10) = {33, -35, -32, 34};
-Plane Surface(5) = {10};
-Curve Loop(11) = {29, -31, -28, 30};
-Plane Surface(6) = {11};
+// Curve Loop(8) = {25, -27, -24, 26};
+// Plane Surface(3) = {8};
+// Curve Loop(9) = {37, -39, -36, 38};
+// Plane Surface(4) = {9};
+// Curve Loop(10) = {33, -35, -32, 34};
+// Plane Surface(5) = {10};
+// Curve Loop(11) = {29, -31, -28, 30};
+// Plane Surface(6) = {11};
 
 // Extrude
 Extrude {0, 0, 0.004} {
-  Surface{1, 2, 3, 4, 5, 6};
+  Surface{1};
 }
 
 // Markers
 // Physical Volume("Cu") = {1,2,3,4,5,6};
 Physical Volume("Cu") = {1};
-Physical Surface("Cool1") = {19};
-Physical Surface("Cool2") = {11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27};
-Physical Surface("In") = {10};
-Physical Surface("Out") = {8};
-Physical Surface("Channel") = {7,9};
+Physical Surface("Cool1") = {14};
+Physical Surface("Cool2") = {6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22};
+Physical Surface("In") = {5};
+Physical Surface("Out") = {3};
+Physical Surface("Channel") = {2,4};
 
 // Local Mesh size arond Cool2
 Field[1] = Distance;
-Field[1].SurfacesList = {11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27};
+Field[1].SurfacesList = {6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22};
 Field[1].NumPointsPerCurve = 100;
 
 Field[2] = Threshold;
@@ -248,9 +248,7 @@ Background Field = 2;
 Mesh.Algorithm = 5;
 
 // Mesh size
-// Mesh.CharacteristicLengthMax = h;
+Mesh.CharacteristicLengthMax = h;
 
 Mesh 3;
-
-
 

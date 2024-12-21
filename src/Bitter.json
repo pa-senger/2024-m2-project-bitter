@@ -52,7 +52,7 @@
           "electric.electric-potential",
           "electric.current-density",
           "electric.electric-field",
-          "pid"
+          "heat.pid"
         ]
       }
     },
