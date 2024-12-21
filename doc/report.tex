@@ -140,7 +140,7 @@ overheating and irreversible damages.
 \end{itemize}
 
 \subsection{Software and libraries}
-To make the model of the bitter and mesh it, we will use Gmsh \cite{geuzaine_gmsh_2009}, a three-dimensional
+To make the model of the Bitter and mesh it, we will use Gmsh \cite{geuzaine_gmsh_2009}, a three-dimensional
  finite element mesh generator with a built-in CAD engine and post-processor. 
 Gmsh is an open-source software and is widely used in the scientific
 community.
@@ -186,11 +186,7 @@ $$
 \end{cases}
 $$
 
-The `Bitter.geo` mesh file logic could be improved by making a function to generate slits 
-instead of duplicating the code for each slit. 
 Physical groups were defined for each boundary of the geometry to apply the boundary conditions.
-
-
 
 \begin{figure}[H]
 	\centering
@@ -205,13 +201,13 @@ $$
 $$
 Where $\kappa$ is the thermal conductivity of the material.
 
-For the electric potential, we have the Poisson equation for electric potential:
+\noindent And we used the following Poisson equation for electric potential:
 $$
 	\nabla^2 V = -\frac{I}{\sigma} \quad \text{in } \Omega
 $$
 Where $I$ is the current intensity and $\sigma$ is the electric conductivity of the material.  
 
-With the boundary conditions described in the next table: 
+To close the system, we used the following boundary conditions:
 
 \begin{table}[H]
 	\centering
@@ -231,24 +227,23 @@ With the boundary conditions described in the next table:
 Both models were discretized using the finite element method (variational formulation).
 
 \subsection{Simulation}
-\begin{minipage}[t]{0.45\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
 \raggedright
-The simulation were performed on the High-Performance Computing (HPC) cluster Gaya. 
+The simulations were performed on the High-Performance Computing (HPC) cluster Gaya. 
 This cluster consists of a DELL PowerEdge R7525 head node and six DELL PowerEdge 
 R6525 compute nodes, providing a total of 768 multi-threaded cores on the compute 
 nodes and 96 cores on the head node. Gaya offers 150 TB of storage for data and 
-an extremely fast 15 TB NVME scratch space.
+an extremely fast 15 TB NVME scratch space. The head node is equipped with two AMD EPYC 7552 48-Core Processors running at 
+2.2GHz, totaling 192 virtual cores, and 1024 GB of RAM. 
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.45\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
 \raggedleft
-\includegraphics[width=\textwidth, angle=-90]{images/gaya.jpeg}
+\includegraphics[width=1.1\textwidth, angle=-90]{images/gaya.jpeg}
 \captionof{figure}{Gaya supercomputer.}
 \end{minipage}
 
-The head node is equipped with two AMD EPYC 7552 48-Core Processors running at 
-2.2GHz, totaling 192 virtual cores, and 1024 GB of RAM. 
-Each compute node features two AMD EPYC 7713 64-Core Processors running at 2GHz, 
+\noindent Each compute node features two AMD EPYC 7713 64-Core Processors running at 2GHz, 
 totaling 256 virtual cores, and 512 GB of RAM. The nodes are interconnected via 
 Broadcom Adv. Dual 10GBASE-T Ethernet and Mellanox ConnectX-6 Dx Dual Port 100 
 GbE for MPI communication.
@@ -300,7 +295,16 @@ We used the following input parameters and physical properties:
 	\includegraphics[width=0.8\textwidth]{images/electric_potential.png}
 	\caption{Electric potential distribution in the Bitter magnet.}
 \end{figure}
+
+
 \section{Prospects}
+\begin{enumerate}
+	\item Improve mesh slits generation by making a function to generate them.
+	\item Make the mesh parametrizable to change the geometry of the Bitter magnet 
+	(e.g., radius, length, number of slits, etc.).
+	\item Test the model with different materials, physical properties, boundary conditions, etc.
+	\item Make a complexity analysis of the simulation depending on the number of elements of the mesh.
+\end{enumerate}
 
 \section{Conclusion}
 
