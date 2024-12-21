@@ -1,4 +1,0 @@
-Log file created at: 2024/12/21 01:16:31
-Running on machine: 88935a761f88
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-F1221 01:16:31.930384 11463 importergmsh.hpp:2843] Check failed: false ImporterGmsh<MeshType>::addVolume with dim=2 not valid
