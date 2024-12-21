@@ -194,37 +194,20 @@ arc_cool24_inner_2 = newl; Circle(arc_cool24_inner_2) = {pt_cool24_inner_1b, pt_
 
 // ###############################################################################
 // Step 4: Create Surfaces, volumes and physical groups with GUI
-// Cu = Omega
+
 Curve Loop(1) = {1, 4, -2, -3};
-Curve Loop(2) = {36, 39, -37, -38};
+Curve Loop(2) = {37, -39, -36, 38};
 Curve Loop(3) = {25, -27, -24, 26};
 Curve Loop(4) = {23};
-Curve Loop(5) = {29, -31, -28, 30};
-Curve Loop(6) = {33, -35, -32, 34};
+Curve Loop(5) = {32, 35, -33, -34};
+Curve Loop(6) = {29, -31, -28, 30};
+
 Plane Surface(1) = {1, 2, 3, 4, 5, 6};
+volume[] = Extrude {0, 0, 0.004} {
+  Surface{1}; 
+};
 
-// Cool1
-Curve Loop(7) = {23};
-// Plane Surface(2) = {7};
-
-// Cool2
-// Curve Loop(8) = {25, -27, -24, 26};
-// Plane Surface(3) = {8};
-// Curve Loop(9) = {37, -39, -36, 38};
-// Plane Surface(4) = {9};
-// Curve Loop(10) = {33, -35, -32, 34};
-// Plane Surface(5) = {10};
-// Curve Loop(11) = {29, -31, -28, 30};
-// Plane Surface(6) = {11};
-
-// Extrude
-Extrude {0, 0, 0.004} {
-  Surface{1};
-}
-
-// Markers
-// Physical Volume("Cu") = {1,2,3,4,5,6};
-Physical Volume("Cu") = {1};
+Physical Volume("Cu") = {volume[1]};
 Physical Surface("Cool1") = {14};
 Physical Surface("Cool2") = {6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22};
 Physical Surface("In") = {5};
@@ -251,4 +234,3 @@ Mesh.Algorithm = 5;
 Mesh.CharacteristicLengthMax = h;
 
 Mesh 3;
-
