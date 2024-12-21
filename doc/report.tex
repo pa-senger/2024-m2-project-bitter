@@ -113,16 +113,38 @@ Pre and Post-Processing applied to a LNCMI Bitter Magnet\par}
 \section{Introduction}
 
 \subsection{Context}
+A Bitter magnet is a type of electromagnet that uses stacked, flat, spiral-shaped 
+copper or brass plates (discs) with slits to allow cooling water to flow through. 
+These magnets can generate extremely high magnetic fields, much higher than typical 
+electromagnets, due to their ability to handle large electric currents without 
+overheating and that's why they are commonly employed in scientific research and 
+advanced applications where such fields are essential.
+
+Simulation of how current and heat are distributed in the magnet is crucial to
+understand the behavior of the magnet to maximize its performance and prevent
+overheating and irreversible damages.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/Bitter-electromagnet-breakout.png}
+	\caption{Breakout of a Bitter electromagnet \cite{bitter_breakout}}
+\end{figure}
 
 \subsection{Main objectives}
 
+\begin{itemize}
+	\item Model the Bitter magnet geometry and mesh it with an adaptive mesh.
+	\item Run simulations to study the distribution of current and heat in the magnet.
+	\item Visualize the results and analyze the behavior of the magnet.
+\end{itemize}
+
 \subsection{Software and libraries}
-To make the model of the bitter and mesh it, we will use Gmsh \cite{gmsh}, a three-dimensional
+To make the model of the bitter and mesh it, we will use Gmsh \cite{geuzaine_gmsh_2009}, a three-dimensional
  finite element mesh generator with a built-in CAD engine and post-processor. 
 Gmsh is an open-source software and is widely used in the scientific
 community.
 
-As for our simulations, our primary tool will be Feel++\cite{feelpp}, a robust and 
+As for our simulations, our primary tool will be Feel++\cite{christophe_prudhomme_feelppfeelpp_2024}, a robust and 
 efficient open-source C++ library designed for solving partial differential equations using 
 the finite element method\cite{fem}.
 
@@ -153,27 +175,84 @@ the finite element method\cite{fem}.
 	\caption{Geometrical parameters for the Bitter magnet.}
 	\label{tab:bitter_geometry}
 	\end{table}
-	
 
-\subsection{Mathematical model}
-Equations and variationnal formulation
+To correctly places the points of the mesh at the right position we converted polar
+coordinates to cartesian coordinates using the relations:
+$$
+\begin{cases}
+	x = \rho \cos(\theta) \\
+	y = \rho \sin(\theta)
+\end{cases}
+$$
 
-\subsection{Simulation}
-The simulation were performed on the High-Performance Computing (HPC) cluster Gaya.
-This cluster consists of a DELL PowerEdge R7525 head node and six DELL PowerEdge 
-R6525 compute nodes, providing a total of 768 multi-threaded cores on the compute 
-nodes and 96 cores on the head node. Gaya offers 150 TB of storage for data and an 
-extremely fast 15 TB NVME scratch space. The head node is equipped with two AMD 
-EPYC 7552 48-Core Processors running at 2.2GHz, totaling 192 virtual cores, and 
-1024 GB of RAM. Each compute node features two AMD EPYC 7713 64-Core Processors 
-running at 2GHz, totaling 256 virtual cores, and 512 GB of RAM. The nodes are 
-interconnected via Broadcom Adv. Dual 10GBASE-T Ethernet and Mellanox ConnectX-6 
-Dx Dual Port 100 GbE for MPI communication.
+The `Bitter.geo` mesh file logic could be improved by making a function to generate slits 
+instead of duplicating the code for each slit. 
+Physical groups were defined for each boundary of the geometry to apply the boundary conditions.
+
+
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth, angle=-90]{images/gaya.jpeg}
-	\caption{Gaya supercomputer.}
+	\includegraphics[width=0.8\textwidth]{images/bitter_mesh.png}
+	\caption{Adaptive 3D mesh of the LNCMI Bitter magnet.}
 \end{figure}
+
+\subsection{Mathematical model}
+The heat is modeled using the heat equation:
+$$
+	-\nabla \cdot (\kappa \nabla T) = 0 \quad \text{in } \Omega 
+$$
+Where $\kappa$ is the thermal conductivity of the material.
+
+For the electric potential, we have the Poisson equation for electric potential:
+$$
+	\nabla^2 V = -\frac{I}{\sigma} \quad \text{in } \Omega
+$$
+Where $I$ is the current intensity and $\sigma$ is the electric conductivity of the material.  
+
+With the boundary conditions described in the next table: 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Name} & \textbf{Heat} & \textbf{Electric} \\ \hline
+	In & Neumann homogeneous & Dirichlet $V = 0$ \\ \hline
+	Out & Neumann homogeneous & Dirichlet $V = 0.03125$ \\ \hline
+	Channel & Robin ($h_e$, $T_{w,e}$) & - \\ \hline
+	Cool1 & Neumann homogeneous & - \\ \hline
+	Cool2 & Robin ($h_i$, $T_{w,i}$) & - \\ \hline
+	\end{tabular}
+	\caption{Boundary conditions.}
+	\label{tab:boundary_conditions}
+\end{table}
+
+Both models were discretized using the finite element method (variational formulation).
+
+\subsection{Simulation}
+\begin{minipage}[t]{0.45\textwidth}
+\raggedright
+The simulation were performed on the High-Performance Computing (HPC) cluster Gaya. 
+This cluster consists of a DELL PowerEdge R7525 head node and six DELL PowerEdge 
+R6525 compute nodes, providing a total of 768 multi-threaded cores on the compute 
+nodes and 96 cores on the head node. Gaya offers 150 TB of storage for data and 
+an extremely fast 15 TB NVME scratch space.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\raggedleft
+\includegraphics[width=\textwidth, angle=-90]{images/gaya.jpeg}
+\captionof{figure}{Gaya supercomputer.}
+\end{minipage}
+
+The head node is equipped with two AMD EPYC 7552 48-Core Processors running at 
+2.2GHz, totaling 192 virtual cores, and 1024 GB of RAM. 
+Each compute node features two AMD EPYC 7713 64-Core Processors running at 2GHz, 
+totaling 256 virtual cores, and 512 GB of RAM. The nodes are interconnected via 
+Broadcom Adv. Dual 10GBASE-T Ethernet and Mellanox ConnectX-6 Dx Dual Port 100 
+GbE for MPI communication.
+
+We used the following input parameters and physical properties:
 
 \begin{table}[H]
 	\centering
@@ -203,27 +282,13 @@ Dx Dual Port 100 GbE for MPI communication.
 		\label{tab:physical_properties}
 	\end{table}
 
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|l|l|l|}
-			\hline
-			\textbf{Name} & \textbf{Heat} & \textbf{Electric} \\ \hline
-			In & Neumann homogeneous & Dirichlet $V = 0$ \\ \hline
-			Out & Neumann homogeneous & Dirichlet $V = 0.03125$ \\ \hline
-			Channel & Robin ($h_e$, $T_{w,e}$) & - \\ \hline
-			Cool1 & Neumann homogeneous & - \\ \hline
-			Cool2 & Robin ($h_i$, $T_{w,i}$) & - \\ \hline
-			\end{tabular}
-			\caption{Boundary conditions.}
-			\label{tab:boundary_conditions}
-		\end{table}
+
 			
 
 \section{Implementation}
 
-\section{Complexity Analysis}
 
-\section{Results}
+\section{Results Visualization}
 
 \section{Prospects}
 
