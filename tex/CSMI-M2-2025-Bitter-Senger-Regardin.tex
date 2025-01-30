@@ -142,9 +142,9 @@ finite element mesh generator with a built-in CAD engine and post-processor.
 Gmsh is an open-source software and is widely used in the scientific
 community.
 
-As for our simulations, our primary tool will be Feel++\cite{christophe_prudhomme_feelppfeelpp_2024}, a robust and
+As for our simulations, our primary tool will be Feel++ \cite{christophe_prudhomme_feelppfeelpp_2024}, a robust and
 efficient open-source C++ library designed for solving partial differential equations using
-the finite element method\cite{fem}.
+the finite element method \cite{fem}.
 
 \section{Methodology}
 \subsection{Geometry and mesh generation}
@@ -192,14 +192,14 @@ Physical groups are defined for each boundary of the geometry in order to apply 
 \subsection{Mathematical model}
 To model the temperature distribution in the bitter we use the well known \textbf{heat equation}:
 $$
--\nabla \cdot (\kappa \nabla T) = 0 \quad \text{in } \Omega,
+-\nabla \cdot (\kappa \nabla T) = Q \quad \text{in } \Omega,
 $$
 where $\kappa$ is the \textbf{thermal conductivity} of the material, $\rho$ is
 the \textbf{density}, and $C_p$ is the specific \textbf{heat capacity}.
 
 \noindent And we use the following \textbf{Poisson equation} for electric potential:
 $$
-- \nabla \cdot (\sigma \nabla V) = 0 \quad \text{in } \Omega,
+- \nabla \cdot (\sigma \nabla V) = S \quad \text{in } \Omega,
 $$
 where $\sigma$ is the \textbf{electric conductivity} of the material.
 
@@ -226,7 +226,7 @@ formulation).
 \subsection{Simulation}
 \begin{minipage}[t]{0.49\textwidth}
   \justifying
-  The simulations were performed on the High-Performance Computing (HPC) cluster Gaya.
+  The simulations are performed on the High-Performance Computing (HPC) cluster Gaya.
   This cluster consists of a DELL PowerEdge R7525 head node and six DELL PowerEdge
   R6525 compute nodes, providing a total of 768 multi-threaded cores on the compute
   nodes and 96 cores on the head node. Gaya offers 150 TB of storage for data and
@@ -244,7 +244,7 @@ formulation).
   \captionof{figure}{Gaya supercomputer.}
 \end{minipage}
 
-We choose to use 12 processes to keep a good compromise between the parallelization 
+We choose to use 12 processes to keep a good compromise between the parallelization
 speed-up and the cost of MPI communication.
 
 We use the following input \textbf{parameters} and \textbf{physical properties}:
@@ -278,6 +278,7 @@ We use the following input \textbf{parameters} and \textbf{physical properties}:
 \end{table}
 
 \section{Results Visualization}
+We present here some of the results visualized using Paraview.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/heat.png}
