@@ -192,14 +192,14 @@ Physical groups are defined for each boundary of the geometry in order to apply 
 \subsection{Mathematical model}
 To model the temperature distribution in the bitter we use the well known \textbf{heat equation}:
 $$
-\rho C_p -\nabla \cdot (\kappa \nabla T) = 0 \quad \text{in } \Omega,
+-\nabla \cdot (\kappa \nabla T) = 0 \quad \text{in } \Omega,
 $$
 where $\kappa$ is the \textbf{thermal conductivity} of the material, $\rho$ is
 the \textbf{density}, and $C_p$ is the specific \textbf{heat capacity}.
 
 \noindent And we use the following \textbf{Poisson equation} for electric potential:
 $$
-\frac{\partial V}{\partial t} - \nabla \cdot (\sigma \nabla V) = 0 \quad \text{in } \Omega,
+- \nabla \cdot (\sigma \nabla V) = 0 \quad \text{in } \Omega,
 $$
 where $\sigma$ is the \textbf{electric conductivity} of the material.
 
@@ -222,7 +222,6 @@ To close the system, we use the following \textbf{boundary conditions}:
 
 Both models are discretized using the \textbf{finite element method} (variational
 formulation).
-And a \textbf{time scheme} is then applied to solve the problem in time.
 
 \subsection{Simulation}
 \begin{minipage}[t]{0.49\textwidth}
