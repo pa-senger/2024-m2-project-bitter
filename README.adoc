@@ -11,27 +11,31 @@ docker build -t 2024m2projectBitter:latest .
 ```
 
 == Usage
-To run the program sequentially, make shure you have the proper permissions:
+To run the program, make sure you have the proper permissions:
 ```bash
 chmod +x run_seq run
 ```
-and run the program sequentially:
+Run the program sequentially:
 ```bash
 ./run_seq
 ```
-to run the program on a cluster:
+Run the program on a cluster:
 ```bash
-./run
+sbatch run
 ```
 
-If you used the container, you can copy the results to your local machine by running:
+You can copy the results to your local machine, with the following command:
+For docker:
 ```bash
 docker ps # to get the container ID
 docker cp <dockerID>:/home/feelppbd/project-bitter/np_1 /path/to/your/local/folder
 ```
 
-== Results
-If you dont want to run the program, you can find the results in the `thermoelectric.exports` folder. In particular, the `Export.case` file contains the results of on of our simulations.
+For a cluster:
+```bash
+rsync -avz gaya:path/to/feelppdb path/to/your/local/folder
+```
+
 
 == Authors
 
