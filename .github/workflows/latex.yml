@@ -10,10 +10,10 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: doc/report.tex
+          root_file: tex/CSMI-M2-2025-Bitter-Senger-Regardin.tex
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: doc/report.pdf
+          path: tex/CSMI-M2-2025-Bitter-Senger-Regardin.pdf
