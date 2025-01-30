@@ -11,11 +11,15 @@ docker build -t 2024m2projectBitter:latest .
 ```
 
 == Usage
-To run the program sequentially, make shure you have the proper permission:
+To run the program sequentially, make shure you have the proper permissions:
 ```bash
-chmod +x run
+chmod +x run_seq run
 ```
-and run the program:
+and run the program sequentially:
+```bash
+./run_seq
+```
+to run the program on a cluster:
 ```bash
 ./run
 ```
@@ -23,7 +27,7 @@ and run the program:
 If you used the container, you can copy the results to your local machine by running:
 ```bash
 docker ps # to get the container ID
-docker cp <dockerID>:/home/feelpp/feelppdb/toolboxes/thermoelectric/Bitter/np_1 /path/to/your/local/folder
+docker cp <dockerID>:/home/feelppbd/project-bitter/np_1 /path/to/your/local/folder
 ```
 
 == Results
