@@ -7,7 +7,7 @@ This project is part of the course "M2 Project" at the University of Strasbourg.
 == Installation
 Feel free to use the provided `Dockerfile` to build a docker image with all the necessary dependencies. To do so, run the following command:
 ```bash
-docker build -t 2024m2projectBitter:latest .
+docker build -t 2024m2projectbitter:latest .
 ```
 
 == Usage
