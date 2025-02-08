@@ -13,6 +13,8 @@
 \usepackage{ragged2e} % For justification
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[backend=biber,style=alphabetic]{biblatex} % Bibliography management
+\usepackage{siunitx} % For SI units
+\usepackage{booktabs} % For nice table rules
 \usetikzlibrary{snakes}
 \usetikzlibrary{arrows.meta, shapes}
 \addbibresource{references.bib} % Bibliography file
@@ -149,24 +151,31 @@ the finite element method \cite{fem}.
 \section{Methodology}
 \subsection{Geometry and mesh generation}
 
+Table~\ref{tab:bitter_geometry} and Figure~\ref{fig:bitter_geometry} describe the
+geometry of the LNCMI Bitter magnet.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/top_view_bitter.png}
   \caption{Top view of the geometry of the LNCMI Bitter magnet.}
+  \label{fig:bitter_geometry}
 \end{figure}
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|l|c|c|c|}
-    \hline
-    \textbf{Parameter} & \textbf{Symbol} & \textbf{Units} & \textbf{Value} \\ \hline
-    Internal radius & $r_i$ & mm & 200 \\ \hline
-    Length of the bitter & $l$ & mm & 100 \\ \hline
-    Angle between $\Gamma_\text{in}$ and $\Gamma_\text{out}$ & $\alpha$ & radian & $\pi/18$ \\ \hline
-    Diameter of $\Gamma_\text{cool,1}$ & $r_1$ & mm & 10 \\ \hline
-    Width of $\Gamma_\text{cool,2}$ & $w_2$ & mm & 1.1 \\ \hline
-    Length of $\Gamma_\text{cool,2}$ & $l_2$ & mm & 5.9 \\ \hline
-    Height & - & mm & 4 \\ \hline
+  \begin{tabular}{p{5cm}p{2cm}p{2cm}p{2cm}}
+    \toprule
+    \renewcommand{\arraystretch}{1.5} % Adjust row spacing for aesthetics
+    \textbf{Parameter} & \textbf{Symbol} & \textbf{Units} & \textbf{Value} \\
+    \midrule
+    Internal radius & $r_i$ & \SI{}{mm} & 200 \\
+    Length of the bitter & $l$ & \SI{}{mm} & 100 \\
+    Angle between $\Gamma_\text{in}$ and $\Gamma_\text{out}$ & $\alpha$ & \SI{}{\radian} & $\pi/18$ \\
+    Diameter of $\Gamma_\text{cool,1}$ & $r_1$ & \SI{}{mm} & 10 \\
+    Width of $\Gamma_\text{cool,2}$ & $w_2$ & \SI{}{mm} & 1.1 \\
+    Length of $\Gamma_\text{cool,2}$ & $l_2$ & \SI{}{mm} & 5.9 \\
+    Height & - & \SI{}{mm} & 4 \\
+    \bottomrule
   \end{tabular}
   \caption{Geometrical parameters for the Bitter magnet.}
   \label{tab:bitter_geometry}
@@ -181,12 +190,14 @@ $$
 \end{cases}
 $$
 
-Physical groups are defined for each boundary of the geometry in order to apply the boundary conditions.
+Figure~\ref{fig:mesh} shows the adaptive 3D mesh and the markers used to define
+the boundary conditions.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{images/bitter_mesh.png}
   \caption{Adaptive 3D mesh of the LNCMI Bitter magnet.}
+  \label{fig:mesh}
 \end{figure}
 
 \subsection{Mathematical model}
@@ -203,18 +214,22 @@ $$
 $$
 where $\sigma$ is the \textbf{electric conductivity} of the material.
 
-To close the system, we use the following \textbf{boundary conditions}:
+To close the system, we use the \textbf{boundary conditions} described in
+Table~\ref{tab:boundary_conditions}.
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|l|l|l|}
-    \hline
-    \textbf{Name} & \textbf{Heat} & \textbf{Electric} \\ \hline
-    In & Neumann homogeneous & Dirichlet $V = 0$ \\ \hline
-    Out & Neumann homogeneous & Dirichlet $V = 0.03125$ \\ \hline
-    Channel & Robin ($h_e$, $T_{w,e}$) & - \\ \hline
-    Cool1 & Neumann homogeneous & - \\ \hline
-    Cool2 & Robin ($h_i$, $T_{w,i}$) & - \\ \hline
+  \renewcommand{\arraystretch}{1.5} % Adjust row spacing for aesthetics
+  \begin{tabular}{p{3cm}p{5cm}p{4cm}}
+    \toprule
+    \textbf{Name} & \textbf{Heat} & \textbf{Electric} \\
+    \midrule
+    In & Neumann homogeneous & Dirichlet $V = 0$ \\
+    Out & Neumann homogeneous & Dirichlet $V = 0.03125$ \\
+    Channel & Robin ($h_e$, $T_{w,e}$) & - \\
+    Cool1 & Neumann homogeneous & - \\
+    Cool2 & Robin ($h_i$, $T_{w,i}$) & - \\
+    \bottomrule
   \end{tabular}
   \caption{Boundary conditions.}
   \label{tab:boundary_conditions}
@@ -247,19 +262,23 @@ formulation).
 We choose to use 12 processes to keep a good compromise between the parallelization
 speed-up and the cost of MPI communication.
 
-We use the following input \textbf{parameters} and \textbf{physical properties}:
+Table~\ref{tab:input_parameters} and Table~\ref{tab:physical_properties} show the
+input parameters and physical properties used in the simulations.
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|l|l|c|c|}
-    \hline
-    \textbf{Name} & \textbf{Description} & \textbf{Value} & \textbf{Unit} \\ \hline
-    $I$ & Current intensity & $-800$ & A \\ \hline
-    $V_D$ & Electrical potential & $0.03125$ & V \\ \hline
-    $h_i$ & Internal transfer coefficient & $0.08$ & $\mathrm{W \cdot mm^{-2} \cdot K^{-1}}$ \\ \hline
-    $T_{w,i}$ & Internal water temperature & $293$ & K \\ \hline
-    $h_e$ & External transfer coefficient & $0.08$ & $\mathrm{W \cdot mm^{-2} \cdot K^{-1}}$ \\ \hline
-    $T_{w,e}$ & External water temperature & $293$ & K \\ \hline
+  \renewcommand{\arraystretch}{1.5} % Adjust row spacing for aesthetics
+  \begin{tabular}{p{1cm}p{6cm}p{2cm}p{2cm}}
+    \toprule
+    \textbf{Name} & \textbf{Description} & \textbf{Value} & \textbf{Unit} \\
+    \midrule
+    $I$ & Current intensity & $-800$ & \SI{}{\ampere} \\
+    $V_D$ & Electrical potential & $0.03125$ & \SI{}{\watt} \\
+    $h_i$ & Internal transfer coefficient & $0.08$ & \SI{}{\watt mm^{-2} \kelvin^{-1}}  \\
+    $T_{w,i}$ & Internal water temperature & $293$ & \SI{}{\kelvin} \\
+    $h_e$ & External transfer coefficient & $0.08$ & \SI{}{\watt mm^{-2} \kelvin^{-1}} \\
+    $T_{w,e}$ & External water temperature & $293$ & \SI{}{\kelvin} \\
+    \bottomrule
   \end{tabular}
   \caption{Input parameters.}
   \label{tab:input_parameters}
@@ -267,57 +286,67 @@ We use the following input \textbf{parameters} and \textbf{physical properties}:
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|l|l|c|c|c|}
-    \hline
-    \textbf{Name} & \textbf{Description} & \textbf{Marker} & \textbf{Value} & \textbf{Unit} \\ \hline
-    $\sigma$ & Electric conductivity & omega & $58 \cdot 10^3$ & $\mathrm{S \cdot mm^{-1}}$ \\ \hline
-    $\kappa$ & Thermal conductivity & omega & $0.38$ & $\mathrm{W/(mm \cdot K)}$ \\ \hline
+  \renewcommand{\arraystretch}{1.5} % Adjust row spacing for aesthetics
+  \begin{tabular}{p{1cm}p{5cm}p{3cm}p{2cm}p{2cm}}
+    \toprule
+    \textbf{Name} & \textbf{Description} & \textbf{Marker} & \textbf{Value} & \textbf{Unit} \\
+    \midrule
+    $\sigma$ & Electric conductivity & omega & $58 \cdot 10^3$ & \SI{}{\siemens mm^{-1}} \\
+    $\kappa$ & Thermal conductivity & omega & $0.38$ & \SI{}{\watt mm^{-1} \kelvin^{-1}} \\
+    \bottomrule
   \end{tabular}
   \caption{Physical properties (Cu).}
   \label{tab:physical_properties}
 \end{table}
 
 \section{Results Visualization}
-\subsubsection{First views}
-We present here some of the results visualized using Paraview.
+\subsection{First views}
+After running the simulations, we can visualize the results using Paraview \cite{paraview}.
+Figure~\ref{fig:heat_distribution} shows the heat distribution in the Bitter magnet
+and Figure~\ref{fig:electric_potential} shows the electric potential distribution.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/heat.png}
-  \caption{Heat distribution in the Bitter magnet.}
+  \caption{Heat distribution in the Bitter magnet [\SI{}{\kelvin}].}
+  \label{fig:heat_distribution}
 \end{figure}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/electric_potential.png}
-  \caption{Electric potential distribution in the Bitter magnet.}
+  \caption{Electric potential distribution in the Bitter magnet [\SI{}{\watt}].}
+  \label{fig:electric_potential}
 \end{figure}
 
-\subsubsection{Mesh topology}
+\subsection{Mesh topology}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/grossier.png}
+  \includegraphics[width=0.8\textwidth]{images/grossier2.png}
   \caption{Cut view of the mesh at a coarse location.}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/raffine.png}
+  \includegraphics[width=0.8\textwidth]{images/raffiner2.png}
   \caption{Cut view of the mesh at a refined location.}
 \end{figure}
 
-\subsubsection{Electrical field}
+\subsection{Electrical field}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/field1.png}
-  \caption{View of the mesh coloured in function of the heat field, with the vector field representing electric field orientation, coloured in function of electric current density.}
+  \includegraphics[width=0.8\textwidth]{images/glyph2.png}
+  \caption{View of the mesh colored in function of the heat field [\SI{}{\kelvin}],
+    with the vector field representing electric field orientation, colored in function
+  of electric current density [\SI{}{\watt}].}
 \end{figure}
 
-\subsubsection{Surface extractions}
+\subsection{Surface extractions}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/isosurfaces.png}
-  \caption{Extraction of the isosurfaces in the heat field, for temperatures of 390, 390.5 and 391 K.}
+  \caption{Extraction of the isosurfaces in the heat field, for temperatures of
+  390, 390.5 and 391 \SI{}{\kelvin}.}
 \end{figure}
 
 \section{Prospects}
