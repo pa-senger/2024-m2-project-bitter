@@ -1,0 +1,9 @@
+FORMAT:
+type: master_server gold 
+SERVERS
+number of servers: 1 
+#Server 1
+machine id: gaya1
+executable: /usr/local/bin/ensight76/bin/ensight7.server
+data_path: /data/home/senger/feelppdb/project-bitter/np_12
+casefile: Export.case

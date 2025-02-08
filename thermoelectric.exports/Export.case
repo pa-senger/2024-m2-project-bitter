@@ -1,0 +1,18 @@
+FORMAT:
+type: ensight gold
+GEOMETRY:
+model: Export.geo
+VARIABLES:
+scalar per node: 1 thermo_electric.electric.electric_potential Export.thermo-electric.electric.electric-potential.scl.****
+scalar per node: 1 thermo_electric.expr.heat_T_C Export.thermo-electric.expr.heat_T_C.scl.****
+scalar per node: 1 thermo_electric.heat.temperature Export.thermo-electric.heat.temperature.scl.****
+vector per element: 1 thermo_electric.electric.current_density Export.thermo-electric.electric.current-density.vec.****
+vector per element: 1 thermo_electric.electric.electric_field Export.thermo-electric.electric.electric-field.vec.****
+scalar per element: 1 thermo_electric.pid Export.thermo-electric.pid.scl.****
+TIME:
+time set:        1
+number of steps: 1
+filename start number: 1
+filename increment: 1
+time values: 0.000000e+00 
+
