@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[unicode=true, colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
@@ -297,6 +298,35 @@ input parameters and physical properties used in the simulations.
   \end{tabular}
   \caption{Physical properties (Cu).}
   \label{tab:physical_properties}
+\end{table}
+
+We perform the simulations using the Thermo-Electric toolbox of Feel++
+\cite{christophe_prudhomme_feelppfeelpp_2024}, which solves the coupled system of
+heat and electric potential equations in a monolithic block.
+In order to be able to solve the problem on bitter geometry
+with a reasonable computational cost, we choose to use the $\mathbb{P}_1$ FEM
+basis functions. The discretization parameters are summarized in Table \ref{tab:discretization}.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Parameter}        & \textbf{Value}            \\ \midrule
+    Dimension                 & 3                         \\
+    Number of Elements       & 63,232                \\
+    Number of Edges          & 86,667                \\
+    Number of Faces          & 135,209                \\
+    Number of Partitions     & 12                        \\
+    Number of Points         & 14,686                  \\
+    \( h_{\text{average}} \) & \SI{1.43e-3}{} \\
+    \( h_{\text{max}} \)     & \SI{5.76e-3}{} \\
+    \( h_{\text{min}} \)     & \SI{4.78e-4}{} \\
+    Order                    & 1                         \\
+    Real Dimension           & 3                         \\
+    Shape                    & Simplex\(_{3,1,3}\)       \\ \bottomrule
+  \end{tabular}
+  \caption{Discretization parameters.}
+  \label{tab:discretization}
 \end{table}
 
 \section{Results Visualization}
