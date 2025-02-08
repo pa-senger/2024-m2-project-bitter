@@ -1,0 +1,271 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{christophe_prudhomme_feelppfeelpp_2024}{software}{}
+      \name{author}{28}{}{%
+        {{hash=e2a4c3fa25ceb7da18ba65b02c2f1152}{%
+           family={{Christophe Prud'homme}},
+           familyi={C\bibinitperiod}}}%
+        {{hash=fa4bede6fbaf6e1c3d30f2d44dc3eef4}{%
+           family={{Vincent Chabannes}},
+           familyi={V\bibinitperiod}}}%
+        {{hash=078055812039bd0b9cfa52f96c73ee3e}{%
+           family={{Stephane Veys}},
+           familyi={S\bibinitperiod}}}%
+        {{hash=db5633a481a7b5325b0c281968cd42be}{%
+           family={{Thibaut Metivet}},
+           familyi={T\bibinitperiod}}}%
+        {{hash=65484393a1300fc91e48bad11b11c939}{%
+           family={{Alexandre Ancel}},
+           familyi={A\bibinitperiod}}}%
+        {{hash=3c25523b8dbc4084dbf3e02726d484c3}{%
+           family={{Jean-Baptiste Wahl}},
+           familyi={J\bibinitperiod}}}%
+        {{hash=820e481d0b20767ab07f7d79939550fc}{%
+           family={{Romain Hild}},
+           familyi={R\bibinitperiod}}}%
+        {{hash=b04c49ba01725d3e9d42f8e8695ff3fb}{%
+           family={{Cécile Daversin-Catty}},
+           familyi={C\bibinitperiod}}}%
+        {{hash=d293f67591687d1558be967049127f7a}{%
+           family={{Thomas Saigre}},
+           familyi={T\bibinitperiod}}}%
+        {{hash=be086e995294ca15c99ea710be2220de}{%
+           family={{Guillaume Dollé}},
+           familyi={G\bibinitperiod}}}%
+        {{hash=a795ed762f758ab3c478a0eac1a2bf3c}{%
+           family={{Tarabay}},
+           familyi={T\bibinitperiod}}}%
+        {{hash=45ee06ef3f292d054c813a95315c131b}{%
+           family={{Lorenzo Sala}},
+           familyi={L\bibinitperiod}}}%
+        {{hash=6acdcb735bcfcb2281591a1b63cb56ff}{%
+           family={{Doyeux}},
+           familyi={D\bibinitperiod}}}%
+        {{hash=7ec3272a6c371613ce91cadf2310bfc3}{%
+           family={{Trophime, Christophe}},
+           familyi={T\bibinitperiod}}}%
+        {{hash=dc077d623c15e75e417b234eb1b6b9b6}{%
+           family={{Luca Berti}},
+           familyi={L\bibinitperiod}}}%
+        {{hash=0d939f81ed7969d457468da2266180f5}{%
+           family={{Abdoulaye Samake}},
+           familyi={A\bibinitperiod}}}%
+        {{hash=ef006faebd94826d6239888424f10e05}{%
+           family={Vanthong},
+           familyi={V\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=93b3421916b8022afafa35712c9c6223}{%
+           family={{Mourad ISMAIL}},
+           familyi={M\bibinitperiod}}}%
+        {{hash=11e83b56637eb82b91ad8fc551ca89ee}{%
+           family={{Vincent Huber}},
+           familyi={V\bibinitperiod}}}%
+        {{hash=10f8132714942d88d3fd08f36a2512fd}{%
+           family={{Kyoshe Winstone}},
+           familyi={K\bibinitperiod}}}%
+        {{hash=ad9c1bdd3a4fce5bd133aafb3f90713b}{%
+           family={{schenone}},
+           familyi={s\bibinitperiod}}}%
+        {{hash=f7f861681aecb18f4c96fa62eabb43ee}{%
+           family={{Philippe}},
+           familyi={P\bibinitperiod}}}%
+        {{hash=ce7500d8850f08bec1e47b898924ae71}{%
+           family={{Daniele Prada}},
+           familyi={D\bibinitperiod}}}%
+        {{hash=635341bc67876dc415a2ecd6b8dab62b}{%
+           family={{Céline Van Landeghem}},
+           familyi={C\bibinitperiod}}}%
+        {{hash=bf5f8fd00069d4d31e6a53f65044b996}{%
+           family={{Alix Kien}},
+           familyi={A\bibinitperiod}}}%
+        {{hash=12327ff7dda21bdd725141dab60a5aa9}{%
+           family={{Pierre Jolivet}},
+           familyi={P\bibinitperiod}}}%
+        {{hash=e4f62e405703463a34f5779f200d2c28}{%
+           family={{Denis Barbier}},
+           familyi={D\bibinitperiod}}}%
+        {{hash=3fcc7994007f275381db820adc67d42d}{%
+           family={{clayrc}},
+           familyi={c\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Zenodo}%
+      }
+      \strng{namehash}{f34e989a62f5dd6f2f034868397725d6}
+      \strng{fullhash}{c8d5e27c6bca472e64d72026ce023089}
+      \strng{bibnamehash}{f34e989a62f5dd6f2f034868397725d6}
+      \strng{authorbibnamehash}{f34e989a62f5dd6f2f034868397725d6}
+      \strng{authornamehash}{f34e989a62f5dd6f2f034868397725d6}
+      \strng{authorfullhash}{c8d5e27c6bca472e64d72026ce023089}
+      \field{labelalpha}{Chr+24}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{feelpp/feelpp: Feel++ Release V111 preview.9}
+      \field{version}{v0.111.0-preview.9}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.5281/zenodo.10837178
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5281/zenodo.10837178
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5281/zenodo.10837178
+      \endverb
+    \endentry
+    \entry{geuzaine_gmsh_2009}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5aaa16aa8f1da7cc84b7e5a1aa81f7dc}{%
+           family={Geuzaine},
+           familyi={G\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4e68439f5babb7846164121ea01fde85}{%
+           family={Remacle},
+           familyi={R\bibinitperiod},
+           given={Jean‐François},
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd12ea93894538befb2eec5a79c4d9f0}
+      \strng{fullhash}{cd12ea93894538befb2eec5a79c4d9f0}
+      \strng{bibnamehash}{cd12ea93894538befb2eec5a79c4d9f0}
+      \strng{authorbibnamehash}{cd12ea93894538befb2eec5a79c4d9f0}
+      \strng{authornamehash}{cd12ea93894538befb2eec5a79c4d9f0}
+      \strng{authorfullhash}{cd12ea93894538befb2eec5a79c4d9f0}
+      \field{labelalpha}{GR09}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Abstract Gmsh is an open‐source 3‐D finite element grid generator with a build‐in {CAD} engine and post‐processor. Its design goal is to provide a fast, light and user‐friendly meshing tool with parametric input and advanced visualization capabilities. This paper presents the overall philosophy, the main design choices and some of the original algorithms implemented in Gmsh. Copyright © 2009 John Wiley \& Sons, Ltd.}
+      \field{day}{10}
+      \field{issn}{0029-5981, 1097-0207}
+      \field{journaltitle}{International Journal for Numerical Methods in Engineering}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{number}{11}
+      \field{shortjournal}{Numerical Meth Engineering}
+      \field{shorttitle}{Gmsh}
+      \field{title}{Gmsh: A 3‐D finite element mesh generator with built‐in pre‐ and post‐processing facilities}
+      \field{volume}{79}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{pages}{1309\bibrangedash 1331}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1002/nme.2579
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/10.1002/nme.2579
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/10.1002/nme.2579
+      \endverb
+    \endentry
+    \entry{paraview}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=dfeedb863ea7adf8bc4472f00bed5b96}{%
+           family={Kitware},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{dfeedb863ea7adf8bc4472f00bed5b96}
+      \strng{fullhash}{dfeedb863ea7adf8bc4472f00bed5b96}
+      \strng{bibnamehash}{dfeedb863ea7adf8bc4472f00bed5b96}
+      \strng{authorbibnamehash}{dfeedb863ea7adf8bc4472f00bed5b96}
+      \strng{authornamehash}{dfeedb863ea7adf8bc4472f00bed5b96}
+      \strng{authorfullhash}{dfeedb863ea7adf8bc4472f00bed5b96}
+      \field{labelalpha}{Kit24}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ParaView}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.paraview.org/
+      \endverb
+      \verb{url}
+      \verb https://www.paraview.org/
+      \endverb
+    \endentry
+    \entry{bitter_breakout}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8319362dfde39452af3374f889da057e}{%
+           family={Sabulsky},
+           familyi={S\bibinitperiod},
+           given={Dylan\bibnamedelima O},
+           giveni={D\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{8319362dfde39452af3374f889da057e}
+      \strng{fullhash}{8319362dfde39452af3374f889da057e}
+      \strng{bibnamehash}{8319362dfde39452af3374f889da057e}
+      \strng{authorbibnamehash}{8319362dfde39452af3374f889da057e}
+      \strng{authornamehash}{8319362dfde39452af3374f889da057e}
+      \strng{authorfullhash}{8319362dfde39452af3374f889da057e}
+      \field{labelalpha}{Sab}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Efficient continuous-duty Bitter-type electromagnets for cold atom experiments}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/figure/Bitter-electromagnet-breakout-diagram-Each-arc-has-eight-holes-bored-along-the_fig1_258250430
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/figure/Bitter-electromagnet-breakout-diagram-Each-arc-has-eight-holes-bored-along-the_fig1_258250430
+      \endverb
+    \endentry
+    \entry{fem}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{labelalpha}{Wik24}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Finite Element Method}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Finite_element_method
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Finite_element_method
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -13,8 +13,8 @@
 \usepackage{ragged2e} % For justification
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[backend=biber,style=alphabetic]{biblatex} % Bibliography management
+\usepackage{booktabs} % For better tables
 \usepackage{siunitx} % For SI units
-\usepackage{booktabs} % For nice table rules
 \usetikzlibrary{snakes}
 \usetikzlibrary{arrows.meta, shapes}
 \addbibresource{references.bib} % Bibliography file
@@ -340,6 +340,12 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
   of electric current density [\SI{}{\watt}].}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/field1_zoom.png}
+  \caption{Zoom on the visualized vector field}
+\end{figure}
+
 \subsection{Surface extractions}
 
 \begin{figure}[H]
@@ -347,6 +353,12 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
   \includegraphics[width=0.8\textwidth]{images/isosurfaces.png}
   \caption{Extraction of the isosurfaces in the heat field, for temperatures of
   390, 390.5 and 391 \SI{}{\kelvin}.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/isosurfaces_zoom.png}
+  \caption{Zoom on the " extracted isosurfaces.}
 \end{figure}
 
 \section{Prospects}
