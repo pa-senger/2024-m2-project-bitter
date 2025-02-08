@@ -182,7 +182,7 @@ geometry of the LNCMI Bitter magnet.
 \end{table}
 
 To correctly places the points of the mesh at the right position we convert polar
-coordinates to Cartesian coordinates using the relations:
+coordinates to Cartesian coordinates using the following relations:
 $$
 \begin{cases}
   x = \rho \cos(\theta) \\
@@ -260,7 +260,7 @@ formulation).
 \end{minipage}
 
 We choose to use 12 processes to keep a good compromise between the parallelization
-speed-up and the cost of MPI communication.
+speed-up and the cost of MPI communications.
 
 Table~\ref{tab:input_parameters} and Table~\ref{tab:physical_properties} show the
 input parameters and physical properties used in the simulations.
@@ -291,7 +291,7 @@ input parameters and physical properties used in the simulations.
     \toprule
     \textbf{Name} & \textbf{Description} & \textbf{Marker} & \textbf{Value} & \textbf{Unit} \\
     \midrule
-    $\sigma$ & Electric conductivity & omega & $58 \cdot 10^3$ & \SI{}{\siemens mm^{-1}} \\
+    $\sigma$ & Electric conductivity & omega & \SI{58e3}{} & \SI{}{\siemens mm^{-1}} \\
     $\kappa$ & Thermal conductivity & omega & $0.38$ & \SI{}{\watt mm^{-1} \kelvin^{-1}} \\
     \bottomrule
   \end{tabular}
