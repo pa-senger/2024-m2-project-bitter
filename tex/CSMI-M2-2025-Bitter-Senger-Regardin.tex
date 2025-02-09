@@ -135,7 +135,7 @@ overheating and irreversible damages.
 
 \begin{itemize}
   \item Model the Bitter magnet geometry and mesh it with an adaptive mesh.
-  \item Run simulations to study the distribution of current and heat in the magnet.
+  \item Run the steady case simulation to study the distribution of current and heat in the magnet.
   \item Visualize the results and analyze the behavior of the magnet.
 \end{itemize}
 
@@ -330,8 +330,13 @@ basis functions. The discretization parameters are summarized in Table \ref{tab:
 \end{table}
 
 \section{Results Visualization}
+We present here some visualizations of the results obtained from the steady case simulation.
+You can also visualize the results by yourself by opening the \\
+\texttt{thermoelectric.exports/Export.case} file with Paraview \cite{paraview}.
+Note that a \\
+\texttt{thermoelectric.exports/Paraview-State.pvsm} file is also provided
+to load the visualization settings.
 \subsection{First views}
-After running the steady case simulation, we can visualize the results using Paraview \cite{paraview}.
 Figure~\ref{fig:heat_distribution} shows the heat distribution in the Bitter magnet
 and Figure~\ref{fig:electric_potential} shows the electric potential distribution.
 \begin{figure}[H]
@@ -341,9 +346,9 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
   \label{fig:heat_distribution}
 \end{figure}
 
-We can see that the bigger hole is not effective to cool down the magnet, whereas
-the smaller ones are better.
-According to the boundary settings for heat transfer (Robin for the holes
+We can see that the bigger hole (\texttt{Cool1}) is not effective to cool down the magnet, whereas
+the smaller ones (\texttt{Cool2}) are better.
+According to the boundary conditions settings for heat transfer (Robin for the holes
   $\Gamma_{\text{cool},2}$ and sides $\Gamma_{\text{channel}}$ and Neumann homogeneous
 for the hole $\Gamma_{\text{cool},1}$), this is a situation we were expecting to observe
 in the visualization.
@@ -355,18 +360,31 @@ in the visualization.
   \label{fig:electric_potential}
 \end{figure}
 
+As for the electric potential (Figure~\ref{fig:electric_potential}), we can see that
+the potential is higher on the side of the magnet where the current inters (\texttt{In} marker)
+and lower on the other side (\texttt{Out} marker). And at a first view the transition
+seems to be smooth.
+
 \subsection{Mesh topology}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/grossier2.png}
   \caption{Cut view of the mesh at a coarse location.}
+  \label{fig:mesh_coarse}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/raffiner2.png}
   \caption{Cut view of the mesh at a refined location.}
+  \label{fig:mesh_fine}
 \end{figure}
+
+Since we expect the solution to change more rapidly around the cooling holes,
+we chose to use a finer mesh around them to be able to capture the solution more
+precisely as shown in Figure~\ref{fig:mesh_fine}. The mesh is coarser in the
+rest of the magnet as shown in Figure~\ref{fig:mesh_coarse} to reduce the computational
+cost of the simulation.
 
 \subsection{Electrical field}
 
@@ -383,6 +401,7 @@ in the visualization.
   \centering
   \includegraphics[width=0.8\textwidth]{images/field1_zoom.png}
   \caption{Zoom on the visualized vector field.}
+  \label{fig:field1_zoom}
 \end{figure}
 
 We can observe that the electrical field is more powerful on the inside (at the
@@ -392,31 +411,53 @@ observe: indeed, as the current cannot pass through the hole, it is diverted and
 thus denser around it.
 
 \subsection{Surface extractions}
+Figure~\ref{fig:isosurfaces} shows the extraction of the isosurfaces in the heat field,
+for temperatures of 11390, 11390.5 and 11391 \SI{}{\kelvin} compared to the
+electric potential distribution. The isosurfaces are distributed as follows: 11390, 11390.5, 11391 \SI{}{\kelvin} and
+11390, 11390.5, 11391 \SI{}{\kelvin} again. We observe that the temperature is higher on the right
+side each time, where there is more material for the current to pass through.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/isosurfaces.png}
   \caption{Extraction of the isosurfaces in the heat field, for temperatures of
-  390, 390.5 and 391 \SI{}{\kelvin}.}
+  11390, 11390.5 and 11391 \SI{}{\kelvin}.}
+  \label{fig:isosurfaces}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/isosurfaces_zoom.png}
-  \caption{Zoom on the extracted isosurfaces.}
+  \includegraphics[width=0.8\textwidth]{images/isosurfaces_glyph.png}
+  \caption{Extraction of the isosurfaces in the heat field, for temperatures of
+  11390, 11390.5 and 11391 \SI{}{\kelvin} with field magnitude glyphs.}
+  \label{fig:isosurfaces_glyph}
 \end{figure}
 
-\section{Prospects}
+We can clearly see in Figure~\ref{fig:isosurfaces_glyph} that the temperature is higher
+near the hole \texttt{Cool1} where the electric field is higher, as shown in
+Figure~\ref{fig:field1_zoom}.
+
+\section{Conclusion}
+In this little project, we successfully modeled and simulated the thermal and electrical
+behavior of an LNCMI Bitter magnet using advanced meshing techniques and the finite
+element method. By using adaptive meshing, we precisely captured critical variations
+in the heat distribution and electric field within the magnet, revealing key insights
+into the effectiveness of cooling mechanisms and current flow patterns. The
+simulations demonstrated expected behaviors, such as localized heating and current
+density around structural features like cooling holes. These results provide a
+strong foundation for future optimizations, including geometry refinements, material
+testing, and transient case simulations, to further enhance the magnet's performance
+and reliability.
+
+\section{Future work}
 \begin{enumerate}
   \item Improve mesh slits generation by making a function to generate them.
   \item Make the mesh parametrizable to change the geometry of the Bitter magnet
     (\textit{e.g.}, radius, length, number of slits, \textit{etc.}).
   \item Test the model with different materials, physical properties, boundary conditions, \textit{etc.}
   \item Make a complexity analysis of the simulation depending on the number of elements of the mesh.
-  \item Run and analyze transient cases.
+  \item Run and analyze transient cases simulations.
 \end{enumerate}
-
-\section{Conclusion}
 
 \newpage
 
