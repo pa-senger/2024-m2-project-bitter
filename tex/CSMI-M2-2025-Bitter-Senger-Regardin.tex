@@ -340,6 +340,10 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
   \caption{Heat distribution in the Bitter magnet [\SI{}{\kelvin}].}
   \label{fig:heat_distribution}
 \end{figure}
+
+We can see that the bigger hole is not effective to cool down the magnet, whereas the smaller ones are better.
+According to the boundary settings for heat transfer (Robin for the holes $\Gamma_{cool,2}$ and sides $\Gamma_{channel}$ and Neumann of value $0$ for the hole $\Gamma_{cool,1}$), this is a situation we were expecting to observe in the visualization.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/electric_potential.png}
@@ -376,6 +380,9 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
   \caption{Zoom on the visualized vector field}
 \end{figure}
 
+We can observe that the electrical field is more powerful on the inside (at the left of the image in Figure~\ref{fig:glyph} ) of the section of the magnet.
+It is also the case around the holes. This is something we were expecting to observe: indeed, as the current cannot pass throught the hole, it is diverted and thus denser around it.
+
 \subsection{Surface extractions}
 
 \begin{figure}[H]
@@ -388,7 +395,7 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/isosurfaces_zoom.png}
-  \caption{Zoom on the " extracted isosurfaces.}
+  \caption{Zoom on the extracted isosurfaces.}
 \end{figure}
 
 \section{Prospects}
