@@ -36,6 +36,9 @@ For a cluster:
 rsync -avz gaya:path/to/feelppdb path/to/your/local/folder
 ```
 
+== Visualization
+If you want to visualize our results without running the program, you can find them in the `thermoelectric.exports` folder. Simply open `Export.case` with Paraview to visualize the results. Note that a `Paraview-State.pvsm` file is also provided to load the state of the visualization in Paraview.
+
 
 == Authors
 

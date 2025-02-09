@@ -300,7 +300,7 @@ input parameters and physical properties used in the simulations.
   \label{tab:physical_properties}
 \end{table}
 
-We perform the simulations using the Thermo-Electric toolbox of Feel++
+We perform the simulation using the Thermo-Electric toolbox of Feel++
 \cite{christophe_prudhomme_feelppfeelpp_2024}, which solves the coupled system of
 heat and electric potential equations in a monolithic block.
 In order to be able to solve the problem on bitter geometry
@@ -331,7 +331,7 @@ basis functions. The discretization parameters are summarized in Table \ref{tab:
 
 \section{Results Visualization}
 \subsection{First views}
-After running the simulations, we can visualize the results using Paraview \cite{paraview}.
+After running the steady case simulation, we can visualize the results using Paraview \cite{paraview}.
 Figure~\ref{fig:heat_distribution} shows the heat distribution in the Bitter magnet
 and Figure~\ref{fig:electric_potential} shows the electric potential distribution.
 \begin{figure}[H]
@@ -341,8 +341,12 @@ and Figure~\ref{fig:electric_potential} shows the electric potential distributio
   \label{fig:heat_distribution}
 \end{figure}
 
-We can see that the bigger hole is not effective to cool down the magnet, whereas the smaller ones are better.
-According to the boundary settings for heat transfer (Robin for the holes $\Gamma_{cool,2}$ and sides $\Gamma_{channel}$ and Neumann of value $0$ for the hole $\Gamma_{cool,1}$), this is a situation we were expecting to observe in the visualization.
+We can see that the bigger hole is not effective to cool down the magnet, whereas
+the smaller ones are better.
+According to the boundary settings for heat transfer (Robin for the holes
+  $\Gamma_{\text{cool},2}$ and sides $\Gamma_{\text{channel}}$ and Neumann homogeneous
+for the hole $\Gamma_{\text{cool},1}$), this is a situation we were expecting to observe
+in the visualization.
 
 \begin{figure}[H]
   \centering
@@ -372,16 +376,20 @@ According to the boundary settings for heat transfer (Robin for the holes $\Gamm
   \caption{View of the mesh colored in function of the heat field [\SI{}{\kelvin}],
     with the vector field representing electric field orientation, colored in function
   of electric current density [\SI{}{\watt}].}
+  \label{fig:glyph}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/field1_zoom.png}
-  \caption{Zoom on the visualized vector field}
+  \caption{Zoom on the visualized vector field.}
 \end{figure}
 
-We can observe that the electrical field is more powerful on the inside (at the left of the image in Figure~\ref{fig:glyph} ) of the section of the magnet.
-It is also the case around the holes. This is something we were expecting to observe: indeed, as the current cannot pass throught the hole, it is diverted and thus denser around it.
+We can observe that the electrical field is more powerful on the inside (at the
+left of the image in Figure~\ref{fig:glyph}) of the section of the magnet.
+It is also the case around the holes. This is something we were expecting to
+observe: indeed, as the current cannot pass through the hole, it is diverted and
+thus denser around it.
 
 \subsection{Surface extractions}
 
@@ -402,9 +410,10 @@ It is also the case around the holes. This is something we were expecting to obs
 \begin{enumerate}
   \item Improve mesh slits generation by making a function to generate them.
   \item Make the mesh parametrizable to change the geometry of the Bitter magnet
-    (e.g., radius, length, number of slits, etc.).
-  \item Test the model with different materials, physical properties, boundary conditions, etc.
+    (\textit{e.g.}, radius, length, number of slits, \textit{etc.}).
+  \item Test the model with different materials, physical properties, boundary conditions, \textit{etc.}
   \item Make a complexity analysis of the simulation depending on the number of elements of the mesh.
+  \item Run and analyze transient cases.
 \end{enumerate}
 
 \section{Conclusion}
