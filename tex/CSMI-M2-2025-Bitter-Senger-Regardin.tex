@@ -366,6 +366,12 @@ and lower on the other side (\texttt{Out} marker). And at a first view the trans
 seems to be smooth.
 
 \subsection{Mesh topology}
+Since we expect the solution to change more rapidly around the cooling holes,
+we chose to use a finer mesh around them to be able to capture the solution more
+precisely as shown in Figure~\ref{fig:mesh_fine}. The mesh is coarser in the
+rest of the magnet as shown in Figure~\ref{fig:mesh_coarse} to reduce the computational
+cost of the simulation.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{images/grossier2.png}
@@ -380,13 +386,12 @@ seems to be smooth.
   \label{fig:mesh_fine}
 \end{figure}
 
-Since we expect the solution to change more rapidly around the cooling holes,
-we chose to use a finer mesh around them to be able to capture the solution more
-precisely as shown in Figure~\ref{fig:mesh_fine}. The mesh is coarser in the
-rest of the magnet as shown in Figure~\ref{fig:mesh_coarse} to reduce the computational
-cost of the simulation.
-
 \subsection{Electrical field}
+We can observe that the electrical field is more powerful on the inside (at the
+left of the image in Figure~\ref{fig:glyph}) of the section of the magnet.
+It is also the case around the holes. This is something we were expecting to
+observe: indeed, as the current cannot pass through the hole, it is diverted and
+thus denser around it.
 
 \begin{figure}[H]
   \centering
@@ -403,12 +408,6 @@ cost of the simulation.
   \caption{Zoom on the visualized vector field.}
   \label{fig:field1_zoom}
 \end{figure}
-
-We can observe that the electrical field is more powerful on the inside (at the
-left of the image in Figure~\ref{fig:glyph}) of the section of the magnet.
-It is also the case around the holes. This is something we were expecting to
-observe: indeed, as the current cannot pass through the hole, it is diverted and
-thus denser around it.
 
 \subsection{Surface extractions}
 Figure~\ref{fig:isosurfaces} shows the extraction of the isosurfaces in the heat field,
