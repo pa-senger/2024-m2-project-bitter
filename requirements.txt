@@ -7,4 +7,3 @@ python-liquid
 pytest
 tqdm
 dash
-pandas
